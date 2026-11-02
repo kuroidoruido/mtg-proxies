@@ -4,18 +4,24 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predev": "tsx scripts/generate-image-list.ts",
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "test": "vitest",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@anthonypena/fp": "^1.0.2",
     "solid-js": "^1.9.17"
   },
   "devDependencies": {
     "@types/node": "^24.19.2",
+    "happy-dom": "^21.0.4",
     "solid-devtools": "^0.34.5",
+    "tsx": "^4.23.15",
     "typescript": "~7.0.2",
     "vite": "^8.3.5",
-    "vite-plugin-solid": "^2.11.14"
+    "vite-plugin-solid": "^2.11.14",
+    "vitest": "^5.1.0"
   }
 }

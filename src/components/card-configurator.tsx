@@ -1,36 +1,166 @@
-import { createEffect, For } from "solid-js";
-import { buildEmptyCardConfig, useStore, type CardConfig } from "../services/store"
+import { createEffect, createResource, For, type JSX } from "solid-js";
+import {
+  buildEmptyCardConfig,
+  useStore,
+  type CardConfig,
+} from "../services/store";
+import { identity } from "@anthonypena/fp";
 
 export function CardConfigurator() {
-    const {store, setStore} = useStore();
+  const [store, setStore] = useStore();
 
-    console.log('store', store)
+  createEffect(() => console.log("store", store));
 
-    const cards = () => store.cards;
-    const addCard = () => {
-        console.log('addCard');
-        setStore('cards', cards => [...cards, buildEmptyCardConfig()]);
-    };
+  const cards = () => store.cards;
+  const addCard = () => {
+    console.log("addCard");
+    setStore("cards", (cards) => [...cards, buildEmptyCardConfig()]);
+  };
 
-    createEffect(() => console.log('cards', cards()));
-
-    return <section class="hidden-on-print">
-        <form>
-            <For each={cards()}>
-                {(cardConfig) => <CardConfigCard cardConfig={cardConfig} />}
-            </For>
-            <button type="button" onClick={addCard}>Add a card</button>
-        </form>
+  return (
+    <section class="card-configurator hidden-on-print">
+      <form>
+        <For each={cards()}>
+          {(cardConfig, index) => (
+            <CardConfigCard
+              cardConfig={cardConfig}
+              onChange={(cc) => {
+                console.log("CardConfigurator > onChange", cc);
+                setStore("cards", index(), cc);
+              }}
+              onDelete={() =>
+                setStore("cards", (cards) =>
+                  cards.filter((_c, ci) => ci !== index()),
+                )
+              }
+            />
+          )}
+        </For>
+        <button type="button" onClick={addCard}>
+          Add a card
+        </button>
+      </form>
     </section>
+  );
 }
 
 interface CardConfigCardProps {
-    cardConfig: CardConfig;   
+  cardConfig: CardConfig;
+  onChange: (cc: CardConfig) => void;
+  onDelete: VoidFunction;
 }
 
 export function CardConfigCard(props: CardConfigCardProps) {
-    const name = () => props.cardConfig.name;
-    return <article>
-        <header>{name()}</header>
+  const [images] = createResource(() =>
+    fetch("/imgs/list.json").then((r): Promise<string[]> => r.json()),
+  );
+
+  const cardConfigPatcher =
+    (
+      key: keyof CardConfig,
+      valueConverter: (x: string) => unknown = identity,
+    ) =>
+    (e: { target: HTMLInputElement }) =>
+      props.onChange({
+        ...props.cardConfig,
+        [key]: valueConverter(e.target.value),
+      });
+
+  return (
+    <article class="card-config">
+      <InputField
+        label="Name"
+        value={props.cardConfig.name}
+        onChange={cardConfigPatcher("name")}
+      />
+      <InputField
+        label="Type"
+        value={props.cardConfig.type}
+        onChange={cardConfigPatcher("type")}
+      />
+      <InputField
+        label="Kind"
+        value={props.cardConfig.kind}
+        onChange={cardConfigPatcher("kind")}
+      />
+      <InputField
+        label="Power"
+        value={props.cardConfig.power}
+        onChange={cardConfigPatcher("power", powerOrToughnessConverter)}
+      />
+      <InputField
+        label="Toughness"
+        value={props.cardConfig.toughness}
+        onChange={cardConfigPatcher("toughness", powerOrToughnessConverter)}
+      />
+      <label>
+        Text:
+        <textarea
+          value={props.cardConfig.text}
+          onkeyup={(e) => {
+            console.log("text onChange", e);
+            props.onChange({
+              ...props.cardConfig,
+              text: e.currentTarget.value,
+            });
+          }}
+        ></textarea>
+      </label>
+      <label>
+        Image:
+        <select
+          value={props.cardConfig.image}
+          onChange={(e) =>
+            props.onChange({
+              ...props.cardConfig,
+              image: e.currentTarget.value,
+            })
+          }
+        >
+          <For each={images.latest ?? []}>{(f) => <option>{f}</option>}</For>
+        </select>
+      </label>
+      <InputField
+        label="Count"
+        type="number"
+        value={props.cardConfig.count}
+        onChange={cardConfigPatcher("count", (x) => Number.parseInt(x, 10))}
+      />
+      <button type="button" onClick={props.onDelete}>
+        Delete
+      </button>
     </article>
+  );
+}
+
+interface InputFieldProps {
+  type?: "number" | "text";
+  label: string;
+  value: number | string;
+  onChange: (e: { target: HTMLInputElement }) => void;
+}
+
+function InputField(props: InputFieldProps) {
+  return (
+    <label>
+      {props.label}:{" "}
+      <input
+        type={props.type ?? "text"}
+        value={props.value}
+        onInput={props.onChange}
+      />
+    </label>
+  );
+}
+
+// onSelect={cardConfigPatcher('image')}>
+
+function powerOrToughnessConverter(x: string): CardConfig["power"] {
+  if (x === "*") {
+    return "*";
+  }
+  if (x === "-") {
+    return 0;
+  }
+  return Number.parseInt(x, 10);
 }
