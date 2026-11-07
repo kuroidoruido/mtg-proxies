@@ -3,7 +3,7 @@ import { useStore, type CardConfig } from "../services/store";
 import { For, Show } from "solid-js";
 import { preformat } from "../services/text-formatter";
 
-type Proxy = Omit<CardConfig, "count">;
+type Proxy = Omit<CardConfig, "count"> & { copy?: true };
 
 export function CardPreview() {
   const [store] = useStore();
@@ -13,7 +13,11 @@ export function CardPreview() {
     }
 
     return store.cards.flatMap(({ count, ...proxy }) =>
-      new Array(count).fill(null).map(() => deepClone(proxy)),
+      new Array(count)
+        .fill(null)
+        .map((_, index) =>
+          deepClone(index === 0 ? proxy : { ...proxy, copy: true }),
+        ),
     );
   };
   return (
@@ -29,7 +33,10 @@ interface ProxyCardProps {
 
 export function ProxyCard(props: ProxyCardProps) {
   return (
-    <article class={"proxy"} attr:data-style={props.proxy.style}>
+    <article
+      classList={{ proxy: true, copy: props.proxy.copy ?? false }}
+      attr:data-style={props.proxy.style}
+    >
       <div class="color-container">
         <For each={props.proxy.color}>
           {(c) => <span attr:data-color={c}></span>}

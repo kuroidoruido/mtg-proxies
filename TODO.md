@@ -15,7 +15,8 @@
 - [x] Can focus on some configuration
 - [x] Can fold configuration
 - [x] Add custom fonts
-- [ ] See multiple time proxy only on print
+- [x] See multiple time proxy only on print
+- [ ] Ensure cards are align on print
 - [ ] Add a checkbox to add/remove power and toughness
 - [ ] Add duplicate button
 - [ ] Add a "default" image
