@@ -56,6 +56,7 @@ export function ProxyCard(props: ProxyCardProps) {
       </main>
       <footer>
         <PowerAndToughness
+          hasPowerAndToughness={props.proxy.hasPowerAndToughness}
           power={props.proxy.power}
           toughness={props.proxy.toughness}
         />
@@ -65,24 +66,13 @@ export function ProxyCard(props: ProxyCardProps) {
 }
 
 function PowerAndToughness(props: {
-  power: number | "*";
-  toughness: number | "*";
+  hasPowerAndToughness: boolean;
+  power: string;
+  toughness: string;
 }) {
   return (
-    <Show
-      when={shouldBeVisible(props.power) || shouldBeVisible(props.toughness)}
-      fallback={<></>}
-    >
-      <Show when={shouldBeVisible(props.power)} fallback={<></>}>
-        {props.power}
-      </Show>
-      /
-      <Show when={shouldBeVisible(props.toughness)} fallback={<></>}>
-        {props.toughness}
-      </Show>
+    <Show when={props.hasPowerAndToughness} fallback={<></>}>
+      {props.power}/{props.toughness}
     </Show>
   );
-  function shouldBeVisible(x: number | "*"): boolean {
-    return x === "*" || x >= 0;
-  }
 }

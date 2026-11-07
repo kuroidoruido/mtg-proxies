@@ -35,8 +35,9 @@ export interface CardConfig {
   kind: string;
   text: string;
   textAlign: TextAlign;
-  power: number | "*";
-  toughness: number | "*";
+  hasPowerAndToughness: boolean;
+  power: string;
+  toughness: string;
   color: CardColor[];
   count: number;
   style: "black-and-red";
@@ -52,8 +53,9 @@ export function buildEmptyCardConfig(): CardConfig {
     kind: "",
     text: "",
     textAlign: "center",
-    power: 0,
-    toughness: 0,
+    hasPowerAndToughness: false,
+    power: "",
+    toughness: "",
     color: ["colorless", "colorless", "colorless"],
     count: 1,
     style: "black-and-red",
@@ -75,7 +77,10 @@ export function ProvideStore({ children }: ParentProps) {
     if (isDefinedAndNotEmpty(previousState)) {
       const parsedPreviousState: StoreData = JSON.parse(previousState);
       parsedPreviousState.cards = parsedPreviousState.cards.map(
-        (configCard) => ({ ...buildEmptyCardConfig(), ...configCard }),
+        (configCard) => ({
+          ...buildEmptyCardConfig(),
+          ...configCard,
+        }),
       );
       store[1](parsedPreviousState);
     }

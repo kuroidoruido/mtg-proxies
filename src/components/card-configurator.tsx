@@ -1,4 +1,4 @@
-import { createEffect, createResource, For, type JSX } from "solid-js";
+import { createEffect, createResource, For } from "solid-js";
 import {
   buildEmptyCardConfig,
   CARD_COLORS,
@@ -116,16 +116,35 @@ export function CardConfigCard(props: CardConfigCardProps) {
           value={props.cardConfig.kind}
           onChange={cardConfigPatcher("kind")}
         />
-        <InputField
-          label="Power"
-          value={props.cardConfig.power}
-          onChange={cardConfigPatcher("power", powerOrToughnessConverter)}
-        />
-        <InputField
-          label="Toughness"
-          value={props.cardConfig.toughness}
-          onChange={cardConfigPatcher("toughness", powerOrToughnessConverter)}
-        />
+        <fieldset>
+          <legend>
+            <label>
+              <input
+                name="has-power-and-toughness"
+                type="checkbox"
+                checked={props.cardConfig.hasPowerAndToughness}
+                onClick={() =>
+                  props.onChange({
+                    ...props.cardConfig,
+                    hasPowerAndToughness:
+                      !props.cardConfig.hasPowerAndToughness,
+                  })
+                }
+              />
+              Has power/toughness
+            </label>
+          </legend>
+          <InputField
+            label="Power"
+            value={props.cardConfig.power}
+            onChange={cardConfigPatcher("power")}
+          />
+          <InputField
+            label="Toughness"
+            value={props.cardConfig.toughness}
+            onChange={cardConfigPatcher("toughness")}
+          />
+        </fieldset>
         <label>
           Text:
           <textarea
@@ -229,14 +248,4 @@ function InputField(props: InputFieldProps) {
       />
     </label>
   );
-}
-
-function powerOrToughnessConverter(x: string): CardConfig["power"] {
-  if (x === "*") {
-    return "*";
-  }
-  if (x === "-") {
-    return 0;
-  }
-  return Number.parseInt(x, 10);
 }

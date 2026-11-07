@@ -188,6 +188,18 @@
         }
 
         main {
+          fieldset {
+            legend {
+              text-wrap: nowrap;
+            }
+            &:has(input[type="checkbox"]:not(:checked)) {
+              border: none;
+              & > :not(legend) {
+                display: none;
+              }
+            }
+          }
+
           label {
             display: flex;
             justify-content: space-between;
