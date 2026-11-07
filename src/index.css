@@ -22,7 +22,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     gap: 0.5mm;
-    justify-content: center;
+    justify-content: left;
 
     article.proxy {
       width: 63mm;
