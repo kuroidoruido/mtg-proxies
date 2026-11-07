@@ -14,9 +14,9 @@ export interface StoreData {
 
 type TextAlign = "left" | "center" | "right" | "justify";
 export const CARD_COLORS = [
+  "colorless",
   "black",
   "blue",
-  "colorless",
   "green",
   "red",
   "white",
@@ -37,7 +37,7 @@ export interface CardConfig {
   textAlign: TextAlign;
   power: number | "*";
   toughness: number | "*";
-  color: CardColor;
+  color: CardColor[];
   count: number;
   style: "black-and-red";
 }
@@ -52,7 +52,7 @@ export function buildEmptyCardConfig(): CardConfig {
     textAlign: "center",
     power: 0,
     toughness: 0,
-    color: "colorless",
+    color: ["colorless", "colorless", "colorless"],
     count: 1,
     style: "black-and-red",
   };

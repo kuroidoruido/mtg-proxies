@@ -124,17 +124,47 @@ export function CardConfigCard(props: CardConfigCardProps) {
       </label>
       <label>
         Color:
-        <select
-          value={props.cardConfig.color}
-          onChange={(e) =>
-            props.onChange({
-              ...props.cardConfig,
-              color: e.currentTarget.value as CardColor,
-            })
-          }
-        >
-          <For each={CARD_COLORS}>{(c) => <option>{c}</option>}</For>
-        </select>
+        <div class="multi-select-container">
+          <select
+            value={props.cardConfig.color[0]}
+            onChange={(e) =>
+              props.onChange({
+                ...props.cardConfig,
+                color: props.cardConfig.color.map((c, index) =>
+                  index === 0 ? (e.currentTarget.value as CardColor) : c,
+                ),
+              })
+            }
+          >
+            <For each={CARD_COLORS}>{(c) => <option>{c}</option>}</For>
+          </select>
+          <select
+            value={props.cardConfig.color[1]}
+            onChange={(e) =>
+              props.onChange({
+                ...props.cardConfig,
+                color: props.cardConfig.color.map((c, index) =>
+                  index === 1 ? (e.currentTarget.value as CardColor) : c,
+                ),
+              })
+            }
+          >
+            <For each={CARD_COLORS}>{(c) => <option>{c}</option>}</For>
+          </select>
+          <select
+            value={props.cardConfig.color[2]}
+            onChange={(e) =>
+              props.onChange({
+                ...props.cardConfig,
+                color: props.cardConfig.color.map((c, index) =>
+                  index === 2 ? (e.currentTarget.value as CardColor) : c,
+                ),
+              })
+            }
+          >
+            <For each={CARD_COLORS}>{(c) => <option>{c}</option>}</For>
+          </select>
+        </div>
       </label>
       <InputField
         label="Count"
@@ -168,8 +198,6 @@ function InputField(props: InputFieldProps) {
     </label>
   );
 }
-
-// onSelect={cardConfigPatcher('image')}>
 
 function powerOrToughnessConverter(x: string): CardConfig["power"] {
   if (x === "*") {

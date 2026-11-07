@@ -130,10 +130,17 @@
           justify-content: space-between;
           gap: 1rem;
 
-          input,
-          textarea,
-          select {
+          & > input,
+          & > textarea,
+          & > select,
+          & > .multi-select-container {
             width: 50%;
+          }
+
+          .multi-select-container {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
           }
         }
       }
@@ -250,6 +257,8 @@ article.proxy[data-style="black-and-red"] {
     top: 2rem;
     left: -0.25rem;
     background-color: transparent;
+    display: flex;
+    flex-direction: column;
     span[data-color] {
       position: relative;
       display: inline-block;
@@ -259,6 +268,7 @@ article.proxy[data-style="black-and-red"] {
       border-radius: 50%;
       background-color: white;
       border: 1px solid var(--style--color--red);
+      margin-bottom: -0.25rem;
 
       &:after {
         content: "";

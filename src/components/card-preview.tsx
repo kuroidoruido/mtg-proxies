@@ -26,7 +26,9 @@ export function ProxyCard(props: ProxyCardProps) {
   return (
     <article class={"proxy"} attr:data-style={props.proxy.style}>
       <div class="color-container">
-        <span attr:data-color={props.proxy.color}></span>
+        <For each={props.proxy.color}>
+          {(c) => <span attr:data-color={c}></span>}
+        </For>
       </div>
       <header>{props.proxy.name}</header>
       <img src={props.proxy.image} />
