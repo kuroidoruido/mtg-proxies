@@ -1,0 +1,164 @@
+article.proxy[data-style="black-and-red"] {
+  --style--color--white: white;
+  --style--color--red: rgb(120, 0, 0);
+  --style--color--darkred-alpha: rgba(50, 0, 0, 0.7);
+  --style--color--darkred: rgba(50, 0, 0);
+
+  --text--bg: var(--style--color--darkred-alpha);
+  --text--color: white;
+  --text--border:
+    0 0 4px var(--style--color--darkred),
+    3px 3px 4px var(--style--color--darkred),
+    -3px 3px 4px var(--style--color--darkred),
+    3px -3px 4px var(--style--color--darkred),
+    -3px -3px 4px var(--style--color--darkred);
+
+  & > :not(main, img),
+  & > main > * {
+    background-color: white;
+    color: black;
+    border-radius: 0.25rem;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  header {
+    color: white;
+    font-weight: bolder;
+    background: transparent;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    text-shadow: var(--text--border);
+  }
+
+  main {
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.125rem;
+    bottom: 1.25rem;
+    right: 0.125rem;
+    left: 0.125rem;
+
+    div.type {
+      color: white;
+      font-weight: bolder;
+      background: transparent;
+      text-align: center;
+      text-shadow: var(--text--border);
+    }
+    div.text {
+      &:empty {
+        display: none;
+      }
+      text-wrap: wrap;
+      color: var(--text--color);
+      background-color: var(--text--bg);
+      padding: 0.125rem 0.25rem;
+    }
+
+    &:has(div.text:empty) {
+      bottom: 1.75rem;
+    }
+
+    pre {
+      margin: 0;
+    }
+  }
+
+  main:has(~ footer:empty) {
+    bottom: 0.125rem;
+  }
+
+  footer {
+    bottom: 0.125rem;
+    right: 0;
+    padding: 0 0.25rem;
+    border: 1px solid var(--text--color);
+    border-radius: 0.25rem;
+    color: var(--text--color);
+    background-color: var(--text--bg);
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  div.color-container {
+    z-index: 500;
+    position: absolute;
+    top: 2rem;
+    left: -0.25rem;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    span[data-color] {
+      position: relative;
+      display: inline-block;
+      width: 1.5rem;
+      height: 1.5rem;
+      line-height: 1.5rem;
+      border-radius: 50%;
+      background-color: white;
+      border: 1px solid var(--style--color--red);
+      margin-bottom: -0.25rem;
+
+      &:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        mask-size: 1rem 1rem;
+        mask-repeat: no-repeat;
+        mask-position: center;
+        mask-mode: alpha;
+        background-color: white;
+      }
+    }
+    span[data-color="colorless"] {
+      display: none;
+    }
+    span[data-color$="black"] {
+      background-color: black;
+      &:after {
+        mask-image: var(--icon--mana-black);
+      }
+    }
+    span[data-color$="blue"] {
+      background-color: blue;
+      &:after {
+        mask-image: var(--icon--mana-blue);
+      }
+    }
+    span[data-color$="green"] {
+      background-color: green;
+      &:after {
+        mask-image: var(--icon--mana-green);
+      }
+    }
+    span[data-color$="red"] {
+      background-color: red;
+      &:after {
+        mask-image: var(--icon--mana-red);
+      }
+    }
+    span[data-color$="white"] {
+      background-color: white;
+      &:after {
+        mask-image: var(--icon--mana-white);
+        background-color: gray;
+      }
+    }
+    span[data-color^="phyrexian-"] {
+      &:after {
+        mask-image: var(--icon--mana-phyrexian);
+      }
+    }
+  }
+}

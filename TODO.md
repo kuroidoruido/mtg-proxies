@@ -14,7 +14,8 @@
 - [x] Can scroll on preview without scolling page
 - [x] Can focus on some configuration
 - [x] Can fold configuration
-- [ ] Add custom fonts
+- [x] Add custom fonts
+- [ ] See multiple time proxy only on print
 - [ ] Add a checkbox to add/remove power and toughness
 - [ ] Add duplicate button
 - [ ] Add a "default" image

@@ -1,7 +1,10 @@
 /* @refresh reload */
-import { render } from 'solid-js/web';
-import './index.css';
-import { App } from './App.tsx';
-import 'solid-devtools';
+import { render } from "solid-js/web";
+import { App } from "./App.tsx";
+import "solid-devtools";
 
-render(() => <App />, document.getElementById('root')!)
+import "./index.css";
+import "./styles/fonts.css";
+import "./styles/style-black-and-red.css";
+
+render(() => <App />, document.getElementById("root")!);

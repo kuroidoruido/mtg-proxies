@@ -1,7 +1,6 @@
-import './App.css'
-import { CardConfigurator } from './components/card-configurator';
-import { CardPreview } from './components/card-preview'
-import { ProvideStore } from './services/store';
+import { CardConfigurator } from "./components/card-configurator";
+import { CardPreview } from "./components/card-preview";
+import { ProvideStore } from "./services/store";
 
 export function App() {
   return (
@@ -9,5 +8,5 @@ export function App() {
       <CardPreview />
       <CardConfigurator />
     </ProvideStore>
-  )
+  );
 }
