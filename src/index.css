@@ -5,6 +5,13 @@
   --text--bg: black;
   --text--font-size: 0.8rem;
 
+  --icon--mana-black: url(/icons/mana-black.svg);
+  --icon--mana-blue: url(/icons/mana-blue.svg);
+  --icon--mana-green: url(/icons/mana-green.svg);
+  --icon--mana-red: url(/icons/mana-red.svg);
+  --icon--mana-white: url(/icons/mana-white.svg);
+  --icon--mana-phyrexian: url(/icons/mana-phyrexian.svg);
+
   .card-preview {
     width: 21cm;
     display: flex;
@@ -234,6 +241,74 @@ article.proxy[data-style="black-and-red"] {
 
     &:empty {
       display: none;
+    }
+  }
+
+  div.color-container {
+    z-index: 500;
+    position: absolute;
+    top: 2rem;
+    left: -0.25rem;
+    background-color: transparent;
+    span[data-color] {
+      position: relative;
+      display: inline-block;
+      width: 1.5rem;
+      height: 1.5rem;
+      line-height: 1.5rem;
+      border-radius: 50%;
+      background-color: white;
+      border: 1px solid var(--style--color--red);
+
+      &:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        mask-size: 1rem 1rem;
+        mask-repeat: no-repeat;
+        mask-position: center;
+        mask-mode: alpha;
+        background-color: white;
+      }
+    }
+    span[data-color="colorless"] {
+      display: none;
+    }
+    span[data-color$="black"] {
+      background-color: black;
+      &:after {
+        mask-image: var(--icon--mana-black);
+      }
+    }
+    span[data-color$="blue"] {
+      background-color: blue;
+      &:after {
+        mask-image: var(--icon--mana-blue);
+      }
+    }
+    span[data-color$="green"] {
+      background-color: green;
+      &:after {
+        mask-image: var(--icon--mana-green);
+      }
+    }
+    span[data-color$="red"] {
+      background-color: red;
+      &:after {
+        mask-image: var(--icon--mana-red);
+      }
+    }
+    span[data-color$="white"] {
+      background-color: white;
+      &:after {
+        mask-image: var(--icon--mana-white);
+        background-color: gray;
+      }
+    }
+    span[data-color^="phyrexian-"] {
+      &:after {
+        mask-image: var(--icon--mana-phyrexian);
+      }
     }
   }
 }

@@ -12,19 +12,34 @@ export interface StoreData {
   cards: CardConfig[];
 }
 
+type TextAlign = "left" | "center" | "right" | "justify";
+export const CARD_COLORS = [
+  "black",
+  "blue",
+  "colorless",
+  "green",
+  "red",
+  "white",
+  "phyrexian-black",
+  "phyrexian-blue",
+  "phyrexian-green",
+  "phyrexian-red",
+  "phyrexian-white",
+] as const;
+export type CardColor = (typeof CARD_COLORS)[number];
+
 export interface CardConfig {
   name: string;
   image: string;
   type: string;
   kind: string;
   text: string;
-  textAlign: "left" | "center" | "right" | "justify";
+  textAlign: TextAlign;
   power: number | "*";
   toughness: number | "*";
+  color: CardColor;
   count: number;
   style: "black-and-red";
-
-  // TODO: color
 }
 
 export function buildEmptyCardConfig(): CardConfig {
@@ -37,6 +52,7 @@ export function buildEmptyCardConfig(): CardConfig {
     textAlign: "center",
     power: 0,
     toughness: 0,
+    color: "colorless",
     count: 1,
     style: "black-and-red",
   };

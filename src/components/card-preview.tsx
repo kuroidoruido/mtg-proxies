@@ -25,6 +25,9 @@ interface ProxyCardProps {
 export function ProxyCard(props: ProxyCardProps) {
   return (
     <article class={"proxy"} attr:data-style={props.proxy.style}>
+      <div class="color-container">
+        <span attr:data-color={props.proxy.color}></span>
+      </div>
       <header>{props.proxy.name}</header>
       <img src={props.proxy.image} />
       <main>

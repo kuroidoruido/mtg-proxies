@@ -1,7 +1,9 @@
 import { createEffect, createResource, For, type JSX } from "solid-js";
 import {
   buildEmptyCardConfig,
+  CARD_COLORS,
   useStore,
+  type CardColor,
   type CardConfig,
 } from "../services/store";
 import { identity } from "@anthonypena/fp";
@@ -118,6 +120,20 @@ export function CardConfigCard(props: CardConfigCardProps) {
           }
         >
           <For each={images.latest ?? []}>{(f) => <option>{f}</option>}</For>
+        </select>
+      </label>
+      <label>
+        Color:
+        <select
+          value={props.cardConfig.color}
+          onChange={(e) =>
+            props.onChange({
+              ...props.cardConfig,
+              color: e.currentTarget.value as CardColor,
+            })
+          }
+        >
+          <For each={CARD_COLORS}>{(c) => <option>{c}</option>}</For>
         </select>
       </label>
       <InputField
