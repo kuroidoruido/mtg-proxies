@@ -158,6 +158,13 @@
   }
 }
 
+@media screen {
+  .card-preview {
+    height: 99vh;
+    overflow-y: scroll;
+  }
+}
+
 article.proxy[data-style="black-and-red"] {
   --style--color--white: white;
   --style--color--red: rgb(120, 0, 0);

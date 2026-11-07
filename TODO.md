@@ -11,7 +11,7 @@
 - [x] Can define color (blue for example)
 - [x] Add my logo like "extension"
 - [x] Support multicolor (blue + red for example)
-- [ ] Can scroll on preview without scolling page
+- [x] Can scroll on preview without scolling page
 - [ ] Can focus on some configuration
 - [ ] Add custom fonts
 - [ ] Add a checkbox to add/remove power and toughness
