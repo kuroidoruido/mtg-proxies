@@ -12,7 +12,8 @@
 - [x] Add my logo like "extension"
 - [x] Support multicolor (blue + red for example)
 - [x] Can scroll on preview without scolling page
-- [ ] Can focus on some configuration
+- [x] Can focus on some configuration
+- [ ] Can fold configuration
 - [ ] Add custom fonts
 - [ ] Add a checkbox to add/remove power and toughness
 - [ ] Add duplicate button

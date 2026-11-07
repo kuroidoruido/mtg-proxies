@@ -40,6 +40,7 @@ export interface CardConfig {
   color: CardColor[];
   count: number;
   style: "black-and-red";
+  focus: boolean;
 }
 
 export function buildEmptyCardConfig(): CardConfig {
@@ -55,6 +56,7 @@ export function buildEmptyCardConfig(): CardConfig {
     color: ["colorless", "colorless", "colorless"],
     count: 1,
     style: "black-and-red",
+    focus: false,
   };
 }
 

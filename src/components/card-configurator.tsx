@@ -70,6 +70,20 @@ export function CardConfigCard(props: CardConfigCardProps) {
 
   return (
     <article class="card-config">
+      <label>
+        Focus:{" "}
+        <input
+          type="checkbox"
+          name="focus"
+          checked={props.cardConfig.focus}
+          onClick={() =>
+            props.onChange({
+              ...props.cardConfig,
+              focus: !props.cardConfig.focus,
+            })
+          }
+        />
+      </label>
       <InputField
         label="Name"
         value={props.cardConfig.name}

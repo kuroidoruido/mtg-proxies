@@ -7,10 +7,15 @@ type Proxy = Omit<CardConfig, "count">;
 
 export function CardPreview() {
   const [store] = useStore();
-  const proxies = (): Proxy[] =>
-    store.cards.flatMap(({ count, ...proxy }) =>
+  const proxies = (): Proxy[] => {
+    if (store.cards.some((c) => c.focus)) {
+      return store.cards.filter((c) => c.focus);
+    }
+
+    return store.cards.flatMap(({ count, ...proxy }) =>
       new Array(count).fill(null).map(() => deepClone(proxy)),
     );
+  };
   return (
     <section class="card-preview">
       <For each={proxies()}>{(proxy) => <ProxyCard proxy={proxy} />}</For>
