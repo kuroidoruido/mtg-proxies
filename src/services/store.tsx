@@ -41,6 +41,7 @@ export interface CardConfig {
   count: number;
   style: "black-and-red";
   focus: boolean;
+  open: boolean;
 }
 
 export function buildEmptyCardConfig(): CardConfig {
@@ -57,6 +58,7 @@ export function buildEmptyCardConfig(): CardConfig {
     count: 1,
     style: "black-and-red",
     focus: false,
+    open: true,
   };
 }
 

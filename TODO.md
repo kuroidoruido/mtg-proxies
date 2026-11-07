@@ -13,7 +13,7 @@
 - [x] Support multicolor (blue + red for example)
 - [x] Can scroll on preview without scolling page
 - [x] Can focus on some configuration
-- [ ] Can fold configuration
+- [x] Can fold configuration
 - [ ] Add custom fonts
 - [ ] Add a checkbox to add/remove power and toughness
 - [ ] Add duplicate button

@@ -70,8 +70,24 @@ export function CardConfigCard(props: CardConfigCardProps) {
 
   return (
     <article class="card-config">
+      <h3>
+        <label>
+          {props.cardConfig.name}
+          <input
+            type="checkbox"
+            name="open"
+            checked={props.cardConfig.open}
+            onClick={() =>
+              props.onChange({
+                ...props.cardConfig,
+                open: !props.cardConfig.open,
+              })
+            }
+          />
+        </label>
+      </h3>
       <label>
-        Focus:{" "}
+        👁
         <input
           type="checkbox"
           name="focus"
@@ -84,108 +100,110 @@ export function CardConfigCard(props: CardConfigCardProps) {
           }
         />
       </label>
-      <InputField
-        label="Name"
-        value={props.cardConfig.name}
-        onChange={cardConfigPatcher("name")}
-      />
-      <InputField
-        label="Type"
-        value={props.cardConfig.type}
-        onChange={cardConfigPatcher("type")}
-      />
-      <InputField
-        label="Kind"
-        value={props.cardConfig.kind}
-        onChange={cardConfigPatcher("kind")}
-      />
-      <InputField
-        label="Power"
-        value={props.cardConfig.power}
-        onChange={cardConfigPatcher("power", powerOrToughnessConverter)}
-      />
-      <InputField
-        label="Toughness"
-        value={props.cardConfig.toughness}
-        onChange={cardConfigPatcher("toughness", powerOrToughnessConverter)}
-      />
-      <label>
-        Text:
-        <textarea
-          value={props.cardConfig.text}
-          onkeyup={(e) => {
-            console.log("text onChange", e);
-            props.onChange({
-              ...props.cardConfig,
-              text: e.currentTarget.value,
-            });
-          }}
-        ></textarea>
-      </label>
-      <label>
-        Image:
-        <select
-          value={props.cardConfig.image}
-          onChange={(e) =>
-            props.onChange({
-              ...props.cardConfig,
-              image: e.currentTarget.value,
-            })
-          }
-        >
-          <For each={images.latest ?? []}>{(f) => <option>{f}</option>}</For>
-        </select>
-      </label>
-      <label>
-        Color:
-        <div class="multi-select-container">
+      <main>
+        <InputField
+          label="Name"
+          value={props.cardConfig.name}
+          onChange={cardConfigPatcher("name")}
+        />
+        <InputField
+          label="Type"
+          value={props.cardConfig.type}
+          onChange={cardConfigPatcher("type")}
+        />
+        <InputField
+          label="Kind"
+          value={props.cardConfig.kind}
+          onChange={cardConfigPatcher("kind")}
+        />
+        <InputField
+          label="Power"
+          value={props.cardConfig.power}
+          onChange={cardConfigPatcher("power", powerOrToughnessConverter)}
+        />
+        <InputField
+          label="Toughness"
+          value={props.cardConfig.toughness}
+          onChange={cardConfigPatcher("toughness", powerOrToughnessConverter)}
+        />
+        <label>
+          Text:
+          <textarea
+            value={props.cardConfig.text}
+            onkeyup={(e) => {
+              console.log("text onChange", e);
+              props.onChange({
+                ...props.cardConfig,
+                text: e.currentTarget.value,
+              });
+            }}
+          ></textarea>
+        </label>
+        <label>
+          Image:
           <select
-            value={props.cardConfig.color[0]}
+            value={props.cardConfig.image}
             onChange={(e) =>
               props.onChange({
                 ...props.cardConfig,
-                color: props.cardConfig.color.map((c, index) =>
-                  index === 0 ? (e.currentTarget.value as CardColor) : c,
-                ),
+                image: e.currentTarget.value,
               })
             }
           >
-            <For each={CARD_COLORS}>{(c) => <option>{c}</option>}</For>
+            <For each={images.latest ?? []}>{(f) => <option>{f}</option>}</For>
           </select>
-          <select
-            value={props.cardConfig.color[1]}
-            onChange={(e) =>
-              props.onChange({
-                ...props.cardConfig,
-                color: props.cardConfig.color.map((c, index) =>
-                  index === 1 ? (e.currentTarget.value as CardColor) : c,
-                ),
-              })
-            }
-          >
-            <For each={CARD_COLORS}>{(c) => <option>{c}</option>}</For>
-          </select>
-          <select
-            value={props.cardConfig.color[2]}
-            onChange={(e) =>
-              props.onChange({
-                ...props.cardConfig,
-                color: props.cardConfig.color.map((c, index) =>
-                  index === 2 ? (e.currentTarget.value as CardColor) : c,
-                ),
-              })
-            }
-          >
-            <For each={CARD_COLORS}>{(c) => <option>{c}</option>}</For>
-          </select>
-        </div>
-      </label>
-      <InputField
-        label="Count"
-        type="number"
-        value={props.cardConfig.count}
-        onChange={cardConfigPatcher("count", (x) => Number.parseInt(x, 10))}
-      />
+        </label>
+        <label>
+          Color:
+          <div class="multi-select-container">
+            <select
+              value={props.cardConfig.color[0]}
+              onChange={(e) =>
+                props.onChange({
+                  ...props.cardConfig,
+                  color: props.cardConfig.color.map((c, index) =>
+                    index === 0 ? (e.currentTarget.value as CardColor) : c,
+                  ),
+                })
+              }
+            >
+              <For each={CARD_COLORS}>{(c) => <option>{c}</option>}</For>
+            </select>
+            <select
+              value={props.cardConfig.color[1]}
+              onChange={(e) =>
+                props.onChange({
+                  ...props.cardConfig,
+                  color: props.cardConfig.color.map((c, index) =>
+                    index === 1 ? (e.currentTarget.value as CardColor) : c,
+                  ),
+                })
+              }
+            >
+              <For each={CARD_COLORS}>{(c) => <option>{c}</option>}</For>
+            </select>
+            <select
+              value={props.cardConfig.color[2]}
+              onChange={(e) =>
+                props.onChange({
+                  ...props.cardConfig,
+                  color: props.cardConfig.color.map((c, index) =>
+                    index === 2 ? (e.currentTarget.value as CardColor) : c,
+                  ),
+                })
+              }
+            >
+              <For each={CARD_COLORS}>{(c) => <option>{c}</option>}</For>
+            </select>
+          </div>
+        </label>
+        <InputField
+          label="Count"
+          type="number"
+          value={props.cardConfig.count}
+          onChange={cardConfigPatcher("count", (x) => Number.parseInt(x, 10))}
+        />
+      </main>
       <button type="button" onClick={props.onDelete}>
         Delete
       </button>

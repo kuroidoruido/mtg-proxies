@@ -111,6 +111,7 @@
     height: 99vh;
     overflow-y: scroll;
     margin-right: 0.25rem;
+    width: 22rem;
     form {
       display: flex;
       flex-direction: column;
@@ -122,25 +123,69 @@
         display: flex;
         flex-direction: column;
         align-content: stretch;
-        padding: 1rem;
+        padding: 2rem 1rem 1rem 1rem;
         gap: 0.125rem;
+        position: relative;
 
-        label {
-          display: flex;
-          justify-content: space-between;
-          gap: 1rem;
+        h3 {
+          margin: 0;
+          padding: 0;
+          position: absolute;
+          top: 0;
+          left: 2rem;
+          right: 2rem;
+          text-align: center;
+          label {
+            width: 100%;
+            display: inline-block;
+            cursor: pointer;
+            input {
+              display: none;
+            }
+          }
+        }
 
-          & > input,
-          & > textarea,
-          & > select,
-          & > .multi-select-container {
-            width: 50%;
+        label:has(input[name="focus"]) {
+          position: absolute;
+          top: 0;
+          left: 0;
+          color: lightgray;
+          cursor: pointer;
+          padding-left: 0.5rem;
+
+          input {
+            display: none;
           }
 
-          .multi-select-container {
+          &:has(input:checked) {
+            color: green;
+          }
+        }
+
+        &:has(h3 input[type="checkbox"]:not(:checked)) {
+          main {
+            display: none;
+          }
+        }
+
+        main {
+          label {
             display: flex;
-            flex-direction: column;
-            align-items: stretch;
+            justify-content: space-between;
+            gap: 1rem;
+
+            & > input,
+            & > textarea,
+            & > select,
+            & > .multi-select-container {
+              width: 50%;
+            }
+
+            .multi-select-container {
+              display: flex;
+              flex-direction: column;
+              align-items: stretch;
+            }
           }
         }
       }
