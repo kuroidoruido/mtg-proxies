@@ -86,6 +86,17 @@
           }
         }
       }
+
+      &:after {
+        content: "";
+        background-image: url(/favicon.svg);
+        width: 1rem;
+        height: 1rem;
+        position: absolute;
+        bottom: -0.25rem;
+        left: -0.25rem;
+        z-index: 500;
+      }
     }
   }
 
