@@ -18,6 +18,10 @@
 - [x] See multiple time proxy only on print
 - [x] Ensure cards are align on print
 - [x] Add a checkbox to add/remove power and toughness
+- [ ] Improve configurator look and feel
+- [ ] Move actual front configuration to black and red style
+- [ ] Add style selector
+- [ ] Add "vilainous" magic style (purple and green style) 
 - [ ] Add duplicate button
 - [ ] Add a "default" image
 - [ ] Can export / import configuration
@@ -28,4 +32,5 @@
 
 ## Technical improvement
 
+- [ ] 1 card config = 1 form (not 1 form for the full configuration)
 - [ ] Add Playwright tests
