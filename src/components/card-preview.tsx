@@ -3,6 +3,8 @@ import { useStore, type CardConfig } from "../services/store";
 import { For, Show } from "solid-js";
 import { preformat } from "../services/text-formatter";
 
+import "./card-preview.css";
+
 type Proxy = Omit<CardConfig, "count"> & { copy?: true };
 
 export function CardPreview() {

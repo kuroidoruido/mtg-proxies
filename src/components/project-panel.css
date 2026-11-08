@@ -1,0 +1,6 @@
+.project-panel {
+  height: 99vh;
+  overflow-y: scroll;
+  margin-right: 0.25rem;
+  width: 22rem;
+}

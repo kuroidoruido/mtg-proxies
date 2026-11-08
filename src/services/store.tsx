@@ -9,6 +9,7 @@ import {
 import { createStore } from "solid-js/store";
 
 export interface StoreData {
+  name: string;
   cards: CardConfig[];
 }
 
@@ -66,7 +67,10 @@ export function buildEmptyCardConfig(): CardConfig {
 
 console.log("buildEmptyCardConfig()", buildEmptyCardConfig());
 
-const store = createStore<StoreData>({ cards: [] }, { name: "config" });
+const store = createStore<StoreData>(
+  { name: "", cards: [] },
+  { name: "config" },
+);
 const StoreContext = createContext(store);
 
 export function ProvideStore({ children }: ParentProps) {
@@ -76,6 +80,7 @@ export function ProvideStore({ children }: ParentProps) {
     const previousState = localStorage.getItem("__STORE_STATE");
     if (isDefinedAndNotEmpty(previousState)) {
       const parsedPreviousState: StoreData = JSON.parse(previousState);
+      parsedPreviousState.name = parsedPreviousState.name ?? "";
       parsedPreviousState.cards = parsedPreviousState.cards.map(
         (configCard) => ({
           ...buildEmptyCardConfig(),

@@ -1,0 +1,25 @@
+.hidden-on-print {
+  button,
+  a[role="button"] {
+    display: inline-block;
+    background-color: lightgray;
+    padding: 0.25rem 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    border: 1px solid gray;
+    color: black;
+    box-sizing: border-box;
+    margin: 1px;
+    width: 100%;
+    text-align: center;
+
+    &:active {
+      border-color: black;
+    }
+
+    &:hover {
+      border-width: 2px;
+      margin: 0;
+    }
+  }
+}

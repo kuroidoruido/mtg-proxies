@@ -7,6 +7,9 @@ import {
   type CardConfig,
 } from "../services/store";
 import { identity } from "@anthonypena/fp";
+import { InputField } from "./fields/input-field";
+
+import "./card-configurator.css";
 
 export function CardConfigurator() {
   const [store, setStore] = useStore();
@@ -223,29 +226,11 @@ export function CardConfigCard(props: CardConfigCardProps) {
           onChange={cardConfigPatcher("count", (x) => Number.parseInt(x, 10))}
         />
       </main>
-      <button type="button" onClick={props.onDelete}>
-        Delete
-      </button>
+      <footer>
+        <button type="button" onClick={props.onDelete}>
+          Delete
+        </button>
+      </footer>
     </article>
-  );
-}
-
-interface InputFieldProps {
-  type?: "number" | "text";
-  label: string;
-  value: number | string;
-  onChange: (e: { target: HTMLInputElement }) => void;
-}
-
-function InputField(props: InputFieldProps) {
-  return (
-    <label>
-      {props.label}:{" "}
-      <input
-        type={props.type ?? "text"}
-        value={props.value}
-        onInput={props.onChange}
-      />
-    </label>
   );
 }

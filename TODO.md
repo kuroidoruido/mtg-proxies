@@ -19,10 +19,12 @@
 - [x] Ensure cards are align on print
 - [x] Add a checkbox to add/remove power and toughness
 - [x] Move actual front configuration to black and red style
-- [ ] Improve configurator look and feel
-- [ ] Can export / import configuration
+- [x] Improve configurator look and feel
+- [x] Can export configuration
+- [ ] Can import configuration
 - [ ] Add style selector
-- [ ] Add "project" with dedicate names + can switch between multiple projects
+- [x] Add project's name
+- [ ] Can switch between multiple projects
 - [ ] Add "vilainous" magic style (purple and green style) 
 - [ ] Add duplicate button
 - [ ] Add a "default" image
@@ -37,3 +39,4 @@
 
 - [ ] 1 card config = 1 form (not 1 form for the full configuration)
 - [ ] Add Playwright tests
+- [ ] Deploy it

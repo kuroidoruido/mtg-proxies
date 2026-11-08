@@ -1,0 +1,105 @@
+.card-preview {
+  width: 21cm;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5mm;
+  justify-content: left;
+
+  article.proxy {
+    width: 63mm;
+    height: 88mm;
+    box-sizing: border-box;
+    border: 2.5mm solid black;
+    border-radius: 1mm;
+    position: relative;
+    break-inside: avoid;
+    page-break-inside: avoid;
+
+    & > * {
+      position: absolute;
+      z-index: 100;
+    }
+
+    img {
+      inset: 0;
+      z-index: 50;
+    }
+
+    main {
+      div.text {
+        font-size: var(--text--font-size);
+
+        &[data-align="left"] {
+          text-align: left;
+        }
+
+        &[data-align="center"] {
+          text-align: center;
+        }
+
+        &[data-align="right"] {
+          text-align: right;
+        }
+
+        &[data-align="justify"] {
+          text-align: justify;
+        }
+
+        span.mana-cost {
+          font-size: 1em;
+          font-weight: bolder;
+          background-color: var(--text--color);
+          color: var(--text--bg);
+          display: inline-block;
+          width: 1em;
+          height: 1em;
+          line-height: 1em;
+          border-radius: 50%;
+          position: relative;
+          top: -0.125rem;
+          text-align: center;
+          vertical-align: middle;
+        }
+        span.tap-cost {
+          font-size: 1em;
+          font-weight: bolder;
+          background-color: var(--text--color);
+          color: var(--text--bg);
+          display: inline-block;
+          width: 1em;
+          height: 1em;
+          line-height: 1em;
+          border-radius: 50%;
+          position: relative;
+          top: -0.125rem;
+          text-align: center;
+          vertical-align: middle;
+          transform: rotate(-30deg);
+        }
+      }
+    }
+
+    &:after {
+      content: "";
+      background-image: url(/favicon.svg);
+      width: 1rem;
+      height: 1rem;
+      position: absolute;
+      bottom: -0.25rem;
+      left: -0.25rem;
+      z-index: 500;
+    }
+  }
+}
+
+@media screen {
+  .card-preview {
+    height: 99vh;
+    overflow-y: scroll;
+
+    article.proxy.copy {
+      display: none;
+    }
+  }
+}
