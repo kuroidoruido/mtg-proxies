@@ -5,10 +5,6 @@
   --text--bg: black;
   --text--font-size: 0.8rem;
 
-  --serif-titre: "Cinzel", Georgia, "Times New Roman", serif;
-  --serif-texte: "Cardo", Georgia, serif;
-  --serif-stats: "Alegreya SC", Georgia, serif;
-
   --icon--mana-black: url(/icons/mana-black.svg);
   --icon--mana-blue: url(/icons/mana-blue.svg);
   --icon--mana-green: url(/icons/mana-green.svg);
@@ -39,23 +35,13 @@
         z-index: 100;
       }
 
-      header {
-        font-family: var(--serif-titre);
-        font-weight: 900;
-      }
-
       img {
         inset: 0;
         z-index: 50;
       }
 
       main {
-        div.type {
-          font-family: var(--serif-titre);
-          font-weight: 900;
-        }
         div.text {
-          font-family: var(--serif-texte);
           font-size: var(--text--font-size);
 
           &[data-align="left"] {
@@ -106,11 +92,6 @@
             transform: rotate(-30deg);
           }
         }
-      }
-
-      footer {
-        font-family: var(--serif-stats);
-        font-weight: 700;
       }
 
       &:after {

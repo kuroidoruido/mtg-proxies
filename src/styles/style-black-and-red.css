@@ -13,6 +13,10 @@ article.proxy[data-style="black-and-red"] {
     3px -3px 4px var(--style--color--darkred),
     -3px -3px 4px var(--style--color--darkred);
 
+  --serif-titre: "Cinzel", Georgia, "Times New Roman", serif;
+  --serif-texte: "Cardo", Georgia, serif;
+  --serif-stats: "Alegreya SC", Georgia, serif;
+
   & > :not(main, img),
   & > main > * {
     background-color: white;
@@ -27,6 +31,8 @@ article.proxy[data-style="black-and-red"] {
   }
 
   header {
+    font-family: var(--serif-titre);
+    font-weight: 900;
     color: white;
     font-weight: bolder;
     background: transparent;
@@ -48,6 +54,8 @@ article.proxy[data-style="black-and-red"] {
     left: 0.125rem;
 
     div.type {
+      font-family: var(--serif-titre);
+      font-weight: 900;
       color: white;
       font-weight: bolder;
       background: transparent;
@@ -55,13 +63,15 @@ article.proxy[data-style="black-and-red"] {
       text-shadow: var(--text--border);
     }
     div.text {
-      &:empty {
-        display: none;
-      }
+      font-family: var(--serif-texte);
       text-wrap: wrap;
       color: var(--text--color);
       background-color: var(--text--bg);
       padding: 0.125rem 0.25rem;
+
+      &:empty {
+        display: none;
+      }
     }
 
     &:has(div.text:empty) {
@@ -85,6 +95,8 @@ article.proxy[data-style="black-and-red"] {
     border-radius: 0.25rem;
     color: var(--text--color);
     background-color: var(--text--bg);
+    font-family: var(--serif-stats);
+    font-weight: 700;
 
     &:empty {
       display: none;

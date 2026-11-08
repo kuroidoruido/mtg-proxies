@@ -18,8 +18,8 @@
 - [x] See multiple time proxy only on print
 - [x] Ensure cards are align on print
 - [x] Add a checkbox to add/remove power and toughness
+- [x] Move actual front configuration to black and red style
 - [ ] Improve configurator look and feel
-- [ ] Move actual front configuration to black and red style
 - [ ] Can export / import configuration
 - [ ] Add style selector
 - [ ] Add "project" with dedicate names + can switch between multiple projects
