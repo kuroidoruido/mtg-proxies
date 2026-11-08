@@ -20,15 +20,18 @@
 - [x] Add a checkbox to add/remove power and toughness
 - [ ] Improve configurator look and feel
 - [ ] Move actual front configuration to black and red style
+- [ ] Can export / import configuration
 - [ ] Add style selector
+- [ ] Add "project" with dedicate names + can switch between multiple projects
 - [ ] Add "vilainous" magic style (purple and green style) 
 - [ ] Add duplicate button
 - [ ] Add a "default" image
-- [ ] Can export / import configuration
+- [ ] Improve configurator look and feel
 - [ ] Add help for "cost tags" (`{(1)}` and `{(tap)}`)
 - [ ] Can reorder configs
 - [ ] Add standard magic style + style selector
 - [ ] Can add a custom image instead of predefined
+- [ ] Add `{(untap)}` mana cost
 
 ## Technical improvement
 
