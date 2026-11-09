@@ -65,8 +65,6 @@ export function buildEmptyCardConfig(): CardConfig {
   };
 }
 
-console.log("buildEmptyCardConfig()", buildEmptyCardConfig());
-
 const store = createStore<StoreData>(
   { name: "", cards: [] },
   { name: "config" },
@@ -93,7 +91,6 @@ export function ProvideStore({ children }: ParentProps) {
 
   createEffect(() => {
     // save new state
-    console.log("should save", currentState());
     localStorage.setItem("__STORE_STATE", JSON.stringify(currentState()));
   });
 

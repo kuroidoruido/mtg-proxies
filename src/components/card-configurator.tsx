@@ -1,4 +1,4 @@
-import { createEffect, createResource, For } from "solid-js";
+import { createResource, For } from "solid-js";
 import {
   buildEmptyCardConfig,
   CARD_COLORS,
@@ -14,13 +14,9 @@ import "./card-configurator.css";
 export function CardConfigurator() {
   const [store, setStore] = useStore();
 
-  createEffect(() => console.log("store", store));
-
   const cards = () => store.cards;
-  const addCard = () => {
-    console.log("addCard");
+  const addCard = () =>
     setStore("cards", (cards) => [...cards, buildEmptyCardConfig()]);
-  };
 
   return (
     <section class="card-configurator hidden-on-print">
@@ -29,10 +25,7 @@ export function CardConfigurator() {
           {(cardConfig, index) => (
             <CardConfigCard
               cardConfig={cardConfig}
-              onChange={(cc) => {
-                console.log("CardConfigurator > onChange", cc);
-                setStore("cards", index(), cc);
-              }}
+              onChange={(cc) => setStore("cards", index(), cc)}
               onDelete={() =>
                 setStore("cards", (cards) =>
                   cards.filter((_c, ci) => ci !== index()),
@@ -153,7 +146,6 @@ export function CardConfigCard(props: CardConfigCardProps) {
           <textarea
             value={props.cardConfig.text}
             onkeyup={(e) => {
-              console.log("text onChange", e);
               props.onChange({
                 ...props.cardConfig,
                 text: e.currentTarget.value,

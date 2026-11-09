@@ -1,0 +1,26 @@
+nav.project-navbar {
+  background-color: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+  padding: 0 2rem;
+
+  ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    li,
+    li a {
+      color: white;
+    }
+  }
+
+  h1 {
+    font-size: 1rem;
+  }
+
+  @media print {
+    display: none;
+  }
+}

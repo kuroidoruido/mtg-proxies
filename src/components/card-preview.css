@@ -1,5 +1,5 @@
 .card-preview {
-  width: 21cm;
+  width: fit-content;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -91,13 +91,7 @@
       z-index: 500;
     }
   }
-}
-
-@media screen {
-  .card-preview {
-    height: 99vh;
-    overflow-y: scroll;
-
+  @media screen {
     article.proxy.copy {
       display: none;
     }

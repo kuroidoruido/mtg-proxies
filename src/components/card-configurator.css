@@ -1,7 +1,4 @@
 .card-configurator {
-  height: 99vh;
-  overflow-y: scroll;
-  margin-right: 0.25rem;
   width: 22rem;
   form {
     display: flex;

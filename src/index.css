@@ -1,6 +1,4 @@
 #root {
-  display: flex;
-
   --text--color: white;
   --text--bg: black;
   --text--font-size: 0.8rem;
@@ -20,5 +18,49 @@
   @page {
     margin: 1cm 0.5cm;
     size: A4 portrait;
+  }
+}
+
+@media screen {
+  #root {
+    /* layout */
+    #one-project-view {
+      display: grid;
+      grid-template:
+        "navbar navbar navbar" min-content
+        "preview config project" 1fr
+        / 21cm 1fr 1fr;
+      position: absolute;
+      inset: 0;
+      width: 100dvw;
+      height: 100dvh;
+      gap: 0.5rem;
+
+      & > nav {
+        grid-area: navbar;
+      }
+      .card-preview {
+        grid-area: preview;
+      }
+      .card-configurator {
+        grid-area: config;
+      }
+      .project-panel {
+        grid-area: project;
+      }
+    }
+  }
+
+  #root {
+    /* global style */
+    .card-preview {
+      overflow-y: scroll;
+      margin-left: 0.5rem;
+    }
+    .card-configurator,
+    .project-panel {
+      overflow-y: scroll;
+      margin-right: 0.5rem;
+    }
   }
 }

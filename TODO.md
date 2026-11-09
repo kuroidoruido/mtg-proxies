@@ -26,6 +26,7 @@
 - [x] Add project's name
 - [ ] Can switch between multiple projects
 - [ ] Add "vilainous" magic style (purple and green style) 
+- [ ] Can select image with visual selector (with image preview)
 - [ ] Add duplicate button
 - [ ] Add a "default" image
 - [ ] Improve configurator look and feel
