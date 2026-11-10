@@ -1,0 +1,426 @@
+{
+  "id": "2a8e8549-485e-4812-ab62-bbd3c526c27c",
+  "name": "Deck Vito",
+  "cards": [
+    {
+      "name": "Sang",
+      "image": "/imgs/sang-01.jpg",
+      "type": "Artefact-Jeton",
+      "kind": "sang",
+      "text": "{(1)}, {(tap)}, défaussez-vous d'une carte, sacrifiez cet artefact : Piochez une carte.",
+      "textAlign": "center",
+      "hasPowerAndToughness": false,
+      "power": "",
+      "toughness": "",
+      "color": [
+        "colorless",
+        "colorless",
+        "colorless"
+      ],
+      "count": 2,
+      "style": "black-and-red",
+      "focus": false,
+      "open": true
+    },
+    {
+      "name": "Sang",
+      "image": "/imgs/sang-02.jpg",
+      "type": "Artefact-Jeton",
+      "kind": "sang",
+      "text": "{(1)}, {(tap)}, défaussez-vous d'une carte, sacrifiez cet artefact : Piochez une carte.",
+      "textAlign": "center",
+      "hasPowerAndToughness": false,
+      "power": "",
+      "toughness": "",
+      "color": [
+        "colorless",
+        "colorless",
+        "colorless"
+      ],
+      "count": 2,
+      "style": "black-and-red",
+      "focus": false,
+      "open": true
+    },
+    {
+      "name": "Sang",
+      "image": "/imgs/sang-03.jpg",
+      "type": "Artefact-Jeton",
+      "kind": "sang",
+      "text": "{(1)}, {(tap)}, défaussez-vous d'une carte, sacrifiez cet artefact : Piochez une carte.",
+      "textAlign": "center",
+      "hasPowerAndToughness": false,
+      "power": "",
+      "toughness": "",
+      "color": [
+        "colorless",
+        "colorless",
+        "colorless"
+      ],
+      "count": 2,
+      "style": "black-and-red",
+      "focus": false,
+      "open": true
+    },
+    {
+      "name": "Sang",
+      "image": "/imgs/sang-04.jpg",
+      "type": "Artefact-Jeton",
+      "kind": "sang",
+      "text": "{(1)}, {(tap)}, défaussez-vous d'une carte, sacrifiez cet artefact : Piochez une carte.",
+      "textAlign": "center",
+      "hasPowerAndToughness": false,
+      "power": "",
+      "toughness": "",
+      "color": [
+        "colorless",
+        "colorless",
+        "colorless"
+      ],
+      "count": 2,
+      "style": "black-and-red",
+      "focus": false,
+      "open": true
+    },
+    {
+      "name": "Vampire",
+      "image": "/imgs/vampire-01.jpg",
+      "type": "Créature-Jeton",
+      "kind": "Vampire",
+      "text": "Vol",
+      "textAlign": "center",
+      "hasPowerAndToughness": true,
+      "power": 2,
+      "toughness": 2,
+      "color": [
+        "black",
+        "colorless",
+        "colorless"
+      ],
+      "count": 2,
+      "style": "black-and-red",
+      "focus": false,
+      "open": true
+    },
+    {
+      "name": "Vampire",
+      "image": "/imgs/vampire-03.jpg",
+      "type": "Créature-Jeton",
+      "kind": "Vampire",
+      "text": "Vol",
+      "textAlign": "center",
+      "hasPowerAndToughness": true,
+      "power": 2,
+      "toughness": 2,
+      "color": [
+        "black",
+        "colorless",
+        "colorless"
+      ],
+      "count": 2,
+      "style": "black-and-red",
+      "focus": false,
+      "open": true
+    },
+    {
+      "name": "Vampire",
+      "image": "/imgs/vampire-04.jpg",
+      "type": "Créature-Jeton",
+      "kind": "Vampire",
+      "text": "Vol",
+      "textAlign": "center",
+      "hasPowerAndToughness": true,
+      "power": 2,
+      "toughness": 2,
+      "color": [
+        "black",
+        "colorless",
+        "colorless"
+      ],
+      "count": 2,
+      "style": "black-and-red",
+      "focus": false,
+      "open": true
+    },
+    {
+      "name": "Vampire",
+      "image": "/imgs/vampire-02.jpg",
+      "type": "Créature-Jeton",
+      "kind": "Vampire",
+      "text": "Vol, lien de vie",
+      "textAlign": "center",
+      "hasPowerAndToughness": true,
+      "power": 2,
+      "toughness": 3,
+      "color": [
+        "black",
+        "colorless",
+        "colorless"
+      ],
+      "count": 1,
+      "style": "black-and-red",
+      "focus": false,
+      "open": true
+    },
+    {
+      "name": "Vampire",
+      "image": "/imgs/vampire-05.jpg",
+      "type": "Créature-Jeton",
+      "kind": "Vampire",
+      "text": "Vol, lien de vie",
+      "textAlign": "center",
+      "hasPowerAndToughness": true,
+      "power": 2,
+      "toughness": 3,
+      "color": [
+        "black",
+        "colorless",
+        "colorless"
+      ],
+      "count": 1,
+      "style": "black-and-red",
+      "focus": false,
+      "open": true
+    },
+    {
+      "name": "Vampire",
+      "image": "/imgs/vampire-06.jpg",
+      "type": "Créature-Jeton",
+      "kind": "Vampire",
+      "text": "Vol, lien de vie",
+      "textAlign": "center",
+      "hasPowerAndToughness": true,
+      "power": 2,
+      "toughness": 3,
+      "color": [
+        "black",
+        "colorless",
+        "colorless"
+      ],
+      "count": 1,
+      "style": "black-and-red",
+      "focus": false,
+      "open": true
+    },
+    {
+      "name": "Chauve-souris",
+      "image": "/imgs/chauve-souris-02.jpg",
+      "type": "Créature-Jeton",
+      "kind": "Chauve-souris",
+      "text": "Vol",
+      "textAlign": "center",
+      "hasPowerAndToughness": true,
+      "power": 1,
+      "toughness": 1,
+      "color": [
+        "black",
+        "colorless",
+        "colorless"
+      ],
+      "count": 1,
+      "style": "black-and-red",
+      "focus": false,
+      "open": true
+    },
+    {
+      "name": "Chauve-souris",
+      "image": "/imgs/chauve-souris-06.jpg",
+      "type": "Créature-Jeton",
+      "kind": "Chauve-souris",
+      "text": "Vol",
+      "textAlign": "center",
+      "hasPowerAndToughness": true,
+      "power": 1,
+      "toughness": 1,
+      "color": [
+        "black",
+        "colorless",
+        "colorless"
+      ],
+      "count": 1,
+      "style": "black-and-red",
+      "focus": false,
+      "open": true
+    },
+    {
+      "name": "Chauve-souris",
+      "image": "/imgs/chauve-souris-01.jpg",
+      "type": "Créature-Jeton",
+      "kind": "Chauve-souris",
+      "text": "Vol, célérité",
+      "textAlign": "center",
+      "hasPowerAndToughness": true,
+      "power": 2,
+      "toughness": 2,
+      "color": [
+        "black",
+        "colorless",
+        "colorless"
+      ],
+      "count": 2,
+      "style": "black-and-red",
+      "focus": false,
+      "open": true
+    },
+    {
+      "name": "Chauve-souris",
+      "image": "/imgs/chauve-souris-04.jpg",
+      "type": "Créature-Jeton",
+      "kind": "Chauve-souris",
+      "text": "Vol, célérité",
+      "textAlign": "center",
+      "hasPowerAndToughness": true,
+      "power": 2,
+      "toughness": 2,
+      "color": [
+        "black",
+        "colorless",
+        "colorless"
+      ],
+      "count": 2,
+      "style": "black-and-red",
+      "focus": false,
+      "open": true
+    },
+    {
+      "name": "Parasite",
+      "image": "/imgs/parasite-02.jpg",
+      "type": "Créature-Jeton",
+      "kind": "Parasite",
+      "text": "Quand cette créature meurt, vous gagnez 1 point de vie.",
+      "textAlign": "center",
+      "hasPowerAndToughness": true,
+      "power": 1,
+      "toughness": 1,
+      "color": [
+        "black",
+        "green",
+        "colorless"
+      ],
+      "count": 2,
+      "style": "black-and-red",
+      "focus": false,
+      "open": true
+    },
+    {
+      "name": "Parasite",
+      "image": "/imgs/parasite-01.jpg",
+      "type": "Créature-Jeton",
+      "kind": "Parasite",
+      "text": "Quand ce jeton attaque, vous gagnez 1 point de vie.",
+      "textAlign": "center",
+      "hasPowerAndToughness": true,
+      "power": 1,
+      "toughness": 1,
+      "color": [
+        "black",
+        "green",
+        "colorless"
+      ],
+      "count": 2,
+      "style": "black-and-red",
+      "focus": false,
+      "open": true
+    },
+    {
+      "name": "Chèvre",
+      "image": "/imgs/chevre-01.jpg",
+      "type": "Créature-Jeton",
+      "kind": "Chèvre",
+      "text": "",
+      "textAlign": "center",
+      "hasPowerAndToughness": true,
+      "power": 0,
+      "toughness": 1,
+      "color": [
+        "white",
+        "colorless",
+        "colorless"
+      ],
+      "count": 2,
+      "style": "black-and-red",
+      "focus": false,
+      "open": true
+    },
+    {
+      "name": "Chèvre",
+      "image": "/imgs/chevre-02.jpg",
+      "type": "Créature-Jeton",
+      "kind": "Chèvre",
+      "text": "",
+      "textAlign": "center",
+      "hasPowerAndToughness": true,
+      "power": 0,
+      "toughness": 1,
+      "color": [
+        "white",
+        "colorless",
+        "colorless"
+      ],
+      "count": 2,
+      "style": "black-and-red",
+      "focus": false,
+      "open": true
+    },
+    {
+      "name": "Chèvre",
+      "image": "/imgs/chevre-03.jpg",
+      "type": "Créature-Jeton",
+      "kind": "Chèvre",
+      "text": "",
+      "textAlign": "center",
+      "hasPowerAndToughness": true,
+      "power": 0,
+      "toughness": 1,
+      "color": [
+        "white",
+        "colorless",
+        "colorless"
+      ],
+      "count": 2,
+      "style": "black-and-red",
+      "focus": false,
+      "open": true
+    },
+    {
+      "name": "Zombie",
+      "image": "/imgs/zombie-02.jpg",
+      "type": "Créature-Jeton",
+      "kind": "Zombie",
+      "text": "",
+      "textAlign": "center",
+      "hasPowerAndToughness": true,
+      "power": 2,
+      "toughness": 2,
+      "color": [
+        "black",
+        "colorless",
+        "colorless"
+      ],
+      "count": 1,
+      "style": "black-and-red",
+      "focus": false,
+      "open": true
+    },
+    {
+      "name": "Zombie",
+      "image": "/imgs/zombie-03.jpg",
+      "type": "Créature-Jeton",
+      "kind": "Zombie",
+      "text": "",
+      "textAlign": "center",
+      "hasPowerAndToughness": true,
+      "power": 2,
+      "toughness": 2,
+      "color": [
+        "black",
+        "colorless",
+        "colorless"
+      ],
+      "count": 1,
+      "style": "black-and-red",
+      "focus": false,
+      "open": true
+    }
+  ]
+}

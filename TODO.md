@@ -21,10 +21,11 @@
 - [x] Move actual front configuration to black and red style
 - [x] Improve configurator look and feel
 - [x] Can export configuration
+- [ ] Can create a new project
 - [ ] Can import configuration
 - [ ] Add style selector
 - [x] Add project's name
-- [ ] Can switch between multiple projects
+- [x] Can switch between multiple projects
 - [ ] Add "vilainous" magic style (purple and green style) 
 - [ ] Can select image with visual selector (with image preview)
 - [ ] Add duplicate button
