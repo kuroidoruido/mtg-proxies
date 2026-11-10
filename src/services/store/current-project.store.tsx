@@ -68,7 +68,7 @@ export function buildEmptyCardConfig(): CardConfig {
 
 const projectStore = createStore<CurrentProjectStoreData>(
   { id: "", name: "", cards: [] },
-  { name: "config" },
+  { name: "current-project" },
 );
 const CurrentProjectStoreContext = createContext(projectStore);
 
