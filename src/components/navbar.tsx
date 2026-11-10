@@ -1,9 +1,9 @@
-import { useStore } from "../services/store";
+import { useCurrentProject } from "../services/store";
 
 import "./navbar.css";
 
 export function ProjectNavbar() {
-  const [store] = useStore();
+  const [store] = useCurrentProject();
   return (
     <nav class="project-navbar hidden-on-print">
       <ul>

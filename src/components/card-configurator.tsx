@@ -2,7 +2,7 @@ import { createResource, For } from "solid-js";
 import {
   buildEmptyCardConfig,
   CARD_COLORS,
-  useStore,
+  useCurrentProject,
   type CardColor,
   type CardConfig,
 } from "../services/store";
@@ -12,7 +12,7 @@ import { InputField } from "./fields/input-field";
 import "./card-configurator.css";
 
 export function CardConfigurator() {
-  const [store, setStore] = useStore();
+  const [store, setStore] = useCurrentProject();
 
   const cards = () => store.cards;
   const addCard = () =>

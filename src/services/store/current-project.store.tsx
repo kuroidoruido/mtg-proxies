@@ -8,7 +8,8 @@ import {
 } from "solid-js";
 import { createStore } from "solid-js/store";
 
-export interface StoreData {
+export interface CurrentProjectStoreData {
+  id: string;
   name: string;
   cards: CardConfig[];
 }
@@ -65,19 +66,27 @@ export function buildEmptyCardConfig(): CardConfig {
   };
 }
 
-const store = createStore<StoreData>(
-  { name: "", cards: [] },
+const projectStore = createStore<CurrentProjectStoreData>(
+  { id: "", name: "", cards: [] },
   { name: "config" },
 );
-const StoreContext = createContext(store);
+const CurrentProjectStoreContext = createContext(projectStore);
 
-export function ProvideStore({ children }: ParentProps) {
-  const currentState = () => store[0];
+const STORAGE_PREFIX = "__MTG_PROXIES__";
+const PROJECT_STORAGE_PREFIX = `${STORAGE_PREFIX}projects__`;
+
+export function ProvideCurrentProject(
+  props: ParentProps & { projectId: string },
+) {
+  const currentState = () => projectStore[0];
   onMount(() => {
     // restore previous state
-    const previousState = localStorage.getItem("__STORE_STATE");
+    const previousState = localStorage.getItem(
+      PROJECT_STORAGE_PREFIX + props.projectId,
+    );
     if (isDefinedAndNotEmpty(previousState)) {
-      const parsedPreviousState: StoreData = JSON.parse(previousState);
+      const parsedPreviousState: CurrentProjectStoreData =
+        JSON.parse(previousState);
       parsedPreviousState.name = parsedPreviousState.name ?? "";
       parsedPreviousState.cards = parsedPreviousState.cards.map(
         (configCard) => ({
@@ -85,20 +94,25 @@ export function ProvideStore({ children }: ParentProps) {
           ...configCard,
         }),
       );
-      store[1](parsedPreviousState);
+      projectStore[1](parsedPreviousState);
     }
   });
 
   createEffect(() => {
     // save new state
-    localStorage.setItem("__STORE_STATE", JSON.stringify(currentState()));
+    localStorage.setItem(
+      PROJECT_STORAGE_PREFIX + props.projectId,
+      JSON.stringify(currentState()),
+    );
   });
 
   return (
-    <StoreContext.Provider value={store}>{children}</StoreContext.Provider>
+    <CurrentProjectStoreContext.Provider value={projectStore}>
+      {props.children}
+    </CurrentProjectStoreContext.Provider>
   );
 }
 
-export function useStore() {
-  return useContext(StoreContext);
+export function useCurrentProject() {
+  return useContext(CurrentProjectStoreContext);
 }

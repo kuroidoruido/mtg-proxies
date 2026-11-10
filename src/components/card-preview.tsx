@@ -1,5 +1,5 @@
 import { deepClone } from "@anthonypena/fp";
-import { useStore, type CardConfig } from "../services/store";
+import { useCurrentProject, type CardConfig } from "../services/store";
 import { For, Show } from "solid-js";
 import { preformat } from "../services/text-formatter";
 
@@ -8,7 +8,7 @@ import "./card-preview.css";
 type Proxy = Omit<CardConfig, "count"> & { copy?: true };
 
 export function CardPreview() {
-  const [store] = useStore();
+  const [store] = useCurrentProject();
   const proxies = (): Proxy[] => {
     if (store.cards.some((c) => c.focus)) {
       return store.cards.filter((c) => c.focus);

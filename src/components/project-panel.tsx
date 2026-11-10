@@ -1,5 +1,5 @@
 import { Slugger } from "@anthonypena/slugger";
-import { useStore } from "../services/store";
+import { useCurrentProject } from "../services/store";
 import { InputField } from "./fields/input-field";
 
 import "./project-panel.css";
@@ -20,7 +20,7 @@ export function ProjectPanel() {
 }
 
 function ProjectNameInput() {
-  const [store, setStore] = useStore();
+  const [store, setStore] = useCurrentProject();
 
   return (
     <InputField
@@ -32,7 +32,7 @@ function ProjectNameInput() {
 }
 
 function ExportButton() {
-  const [store] = useStore();
+  const [store] = useCurrentProject();
 
   const exportLink = () =>
     `data:application/json;charset=utf-8,${encodeURI(JSON.stringify(store, undefined, 2))}`;
