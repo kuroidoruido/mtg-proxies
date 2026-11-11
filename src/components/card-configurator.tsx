@@ -33,6 +33,13 @@ export function CardConfigurator() {
                   cards.filter((_c, ci) => ci !== index()),
                 )
               }
+              onDuplicate={() =>
+                setStore("cards", (cards) =>
+                  cards.flatMap((c, ci) =>
+                    ci === index() ? [c, { ...c }] : [c],
+                  ),
+                )
+              }
             />
           )}
         </For>
@@ -48,6 +55,7 @@ interface CardConfigCardProps {
   cardConfig: CardConfig;
   onChange: (cc: CardConfig) => void;
   onDelete: VoidFunction;
+  onDuplicate: VoidFunction;
 }
 
 export function CardConfigCard(props: CardConfigCardProps) {
@@ -245,6 +253,9 @@ export function CardConfigCard(props: CardConfigCardProps) {
       <footer>
         <button type="button" onClick={props.onDelete}>
           Delete
+        </button>
+        <button type="button" onClick={props.onDuplicate}>
+          Duplicate
         </button>
       </footer>
     </article>
