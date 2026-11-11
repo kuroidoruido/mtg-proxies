@@ -52,6 +52,10 @@ export function saveProjectToStorage(project: Project) {
     STORE_CHANGES_LISTENERS.forEach((f) => f?.());
 }
 
+export function deleteProjectFromStorage(projectId: string) {
+    localStorage.removeItem(buildProjectKey(projectId));
+}
+
 const STORE_CHANGES_LISTENERS: VoidFunction[] = [];
 export function onStoreChanges(fn: VoidFunction): VoidFunction {
     window.addEventListener("storage", fn);

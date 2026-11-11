@@ -1,8 +1,9 @@
 import { Slugger } from "@anthonypena/slugger";
-import { useCurrentProject } from "../services/store";
+import { useCurrentProject, useDeleteProject } from "../services/store";
 import { InputField } from "./fields/input-field";
 
 import "./project-panel.css";
+import { useNavigate } from "@solidjs/router";
 
 export function ProjectPanel() {
   return (
@@ -14,6 +15,7 @@ export function ProjectPanel() {
       <fieldset>
         <legend>State</legend>
         <ExportButton />
+        <DeleteButton />
       </fieldset>
     </section>
   );
@@ -47,5 +49,22 @@ function ExportButton() {
     <a role="button" href={exportLink()} download={exportFileName()}>
       Export project
     </a>
+  );
+}
+
+function DeleteButton() {
+  const [currentProject] = useCurrentProject();
+  const deleteProject = useDeleteProject();
+  const navigate = useNavigate();
+
+  return (
+    <button
+      onClick={() => {
+        deleteProject(currentProject.id);
+        navigate("/");
+      }}
+    >
+      Delete project
+    </button>
   );
 }

@@ -23,7 +23,7 @@
 - [x] Can export configuration
 - [x] Can create a new project
 - [x] Can import configuration
-- [ ] Can delete a configuration
+- [x] Can delete a configuration
 - [x] Add style selector
 - [x] Add project's name
 - [x] Can switch between multiple projects
