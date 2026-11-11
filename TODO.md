@@ -22,18 +22,19 @@
 - [x] Improve configurator look and feel
 - [x] Can export configuration
 - [x] Can create a new project
-- [ ] Can import configuration
+- [x] Can import configuration
+- [ ] Can delete a configuration
 - [x] Add style selector
 - [x] Add project's name
 - [x] Can switch between multiple projects
 - [x] Add "vilainous" magic style (purple and green style) 
 - [ ] Can select image with visual selector (with image preview)
-- [ ] Add duplicate button
+- [x] Add duplicate button
 - [ ] Add a "default" image
-- [ ] Improve configurator look and feel
+- [x] Improve configurator look and feel
 - [ ] Add help for "cost tags" (`{(1)}` and `{(tap)}`)
 - [ ] Can reorder configs
-- [ ] Add standard magic style + style selector
+- [ ] Add standard magic style
 - [ ] Can add a custom image instead of predefined
 - [ ] Add `{(untap)}` mana cost
 

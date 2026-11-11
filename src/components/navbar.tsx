@@ -2,16 +2,20 @@ import { useCurrentProject } from "../services/store";
 
 import "./navbar.css";
 
-export function ProjectNavbar() {
-  const [store] = useCurrentProject();
+export function BasicNavbar(props: { title: string }) {
   return (
-    <nav class="project-navbar hidden-on-print">
+    <nav class="navbar hidden-on-print">
       <ul>
         <li>
           <a href="/">↖ Back to project selection</a>
         </li>
       </ul>
-      <h1>{store.name}</h1>
+      <h1>{props.title}</h1>
     </nav>
   );
+}
+
+export function ProjectNavbar() {
+  const [currentProject] = useCurrentProject();
+  return <BasicNavbar title={currentProject.name} />;
 }

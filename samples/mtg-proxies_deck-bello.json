@@ -1,0 +1,326 @@
+{
+  "id": "69555d3f-b29c-40c8-8f40-98ccb8bbd4bc",
+  "name": "Deck Bello",
+  "cards": [
+    {
+      "name": "Bête",
+      "image": "/imgs/bete-01.jpg",
+      "type": "Créature-Jeton",
+      "kind": "Bête",
+      "text": "",
+      "textAlign": "center",
+      "hasPowerAndToughness": true,
+      "power": "4",
+      "toughness": "4",
+      "color": [
+        "green",
+        "colorless",
+        "colorless"
+      ],
+      "count": 1,
+      "style": "vilainous",
+      "focus": false,
+      "open": false
+    },
+    {
+      "name": "Bête",
+      "image": "/imgs/bete-04.jpg",
+      "type": "Créature-Jeton",
+      "kind": "Bête",
+      "text": "",
+      "textAlign": "center",
+      "hasPowerAndToughness": true,
+      "power": "4",
+      "toughness": "4",
+      "color": [
+        "green",
+        "colorless",
+        "colorless"
+      ],
+      "count": 1,
+      "style": "vilainous",
+      "focus": false,
+      "open": false
+    },
+    {
+      "name": "Bête",
+      "image": "/imgs/bete-02.jpg",
+      "type": "Créature-Jeton",
+      "kind": "Bête",
+      "text": "",
+      "textAlign": "center",
+      "hasPowerAndToughness": true,
+      "power": "3",
+      "toughness": "3",
+      "color": [
+        "green",
+        "colorless",
+        "colorless"
+      ],
+      "count": 1,
+      "style": "vilainous",
+      "focus": false,
+      "open": false
+    },
+    {
+      "name": "Bête",
+      "image": "/imgs/bete-03.jpg",
+      "type": "Créature-Jeton",
+      "kind": "Bête",
+      "text": "",
+      "textAlign": "center",
+      "hasPowerAndToughness": true,
+      "power": "3",
+      "toughness": "3",
+      "color": [
+        "green",
+        "colorless",
+        "colorless"
+      ],
+      "count": 1,
+      "style": "vilainous",
+      "focus": false,
+      "open": false
+    },
+    {
+      "name": "Bête",
+      "image": "/imgs/bete-06.jpg",
+      "type": "Créature-Jeton",
+      "kind": "Bête",
+      "text": "",
+      "textAlign": "center",
+      "hasPowerAndToughness": true,
+      "power": "3",
+      "toughness": "3",
+      "color": [
+        "green",
+        "colorless",
+        "colorless"
+      ],
+      "count": 1,
+      "style": "vilainous",
+      "focus": false,
+      "open": false
+    },
+    {
+      "name": "Saprobionte",
+      "image": "/imgs/saprobionte-01.jpg",
+      "type": "Créature-Jeton",
+      "kind": "Saprobionte",
+      "text": "",
+      "textAlign": "center",
+      "hasPowerAndToughness": true,
+      "power": "1",
+      "toughness": "1",
+      "color": [
+        "green",
+        "colorless",
+        "colorless"
+      ],
+      "count": 1,
+      "style": "vilainous",
+      "focus": false,
+      "open": false
+    },
+    {
+      "name": "Saprobionte",
+      "image": "/imgs/saprobionte-02.jpg",
+      "type": "Créature-Jeton",
+      "kind": "Saprobionte",
+      "text": "",
+      "textAlign": "center",
+      "hasPowerAndToughness": true,
+      "power": "1",
+      "toughness": "1",
+      "color": [
+        "green",
+        "colorless",
+        "colorless"
+      ],
+      "count": 1,
+      "style": "vilainous",
+      "focus": false,
+      "open": false
+    },
+    {
+      "name": "Saprobionte",
+      "image": "/imgs/saprobionte-03.jpg",
+      "type": "Créature-Jeton",
+      "kind": "Saprobionte",
+      "text": "",
+      "textAlign": "center",
+      "hasPowerAndToughness": true,
+      "power": "1",
+      "toughness": "1",
+      "color": [
+        "green",
+        "colorless",
+        "colorless"
+      ],
+      "count": 1,
+      "style": "vilainous",
+      "focus": false,
+      "open": false
+    },
+    {
+      "name": "Saprobionte",
+      "image": "/imgs/saprobionte-06.jpg",
+      "type": "Créature-Jeton",
+      "kind": "Saprobionte",
+      "text": "",
+      "textAlign": "center",
+      "hasPowerAndToughness": true,
+      "power": "1",
+      "toughness": "1",
+      "color": [
+        "green",
+        "colorless",
+        "colorless"
+      ],
+      "count": 1,
+      "style": "vilainous",
+      "focus": false,
+      "open": false
+    },
+    {
+      "name": "Chat",
+      "image": "/imgs/chat-02.jpg",
+      "type": "Créature-Jeton",
+      "kind": "Chat",
+      "text": "",
+      "textAlign": "center",
+      "hasPowerAndToughness": true,
+      "power": "2",
+      "toughness": "2",
+      "color": [
+        "green",
+        "colorless",
+        "colorless"
+      ],
+      "count": 1,
+      "style": "vilainous",
+      "focus": false,
+      "open": false
+    },
+    {
+      "name": "Trésor",
+      "image": "/imgs/tresor-04.jpg",
+      "type": "Artefact-Jeton",
+      "kind": "Trésor",
+      "text": "{(tap)}, Sacrifiez ce jeton : Ajoutez un mana de n'importe quelle couleur.",
+      "textAlign": "center",
+      "hasPowerAndToughness": false,
+      "power": "",
+      "toughness": "",
+      "color": [
+        "colorless",
+        "colorless",
+        "colorless"
+      ],
+      "count": 1,
+      "style": "vilainous",
+      "focus": false,
+      "open": false
+    },
+    {
+      "name": "Trésor",
+      "image": "/imgs/tresor-03.jpg",
+      "type": "Artefact-Jeton",
+      "kind": "Trésor",
+      "text": "{(tap)}, Sacrifiez ce jeton : Ajoutez un mana de n'importe quelle couleur.",
+      "textAlign": "center",
+      "hasPowerAndToughness": false,
+      "power": "",
+      "toughness": "",
+      "color": [
+        "colorless",
+        "colorless",
+        "colorless"
+      ],
+      "count": 1,
+      "style": "vilainous",
+      "focus": false,
+      "open": false
+    },
+    {
+      "name": "Trésor",
+      "image": "/imgs/tresor-01.jpg",
+      "type": "Artefact-Jeton",
+      "kind": "Trésor",
+      "text": "{(tap)}, Sacrifiez ce jeton : Ajoutez un mana de n'importe quelle couleur.",
+      "textAlign": "center",
+      "hasPowerAndToughness": false,
+      "power": "",
+      "toughness": "",
+      "color": [
+        "colorless",
+        "colorless",
+        "colorless"
+      ],
+      "count": 1,
+      "style": "vilainous",
+      "focus": false,
+      "open": false
+    },
+    {
+      "name": "Prosperous Bandit",
+      "image": "/imgs/bandit-prospere-01.jpg",
+      "type": "Créature-Jeton",
+      "kind": "Raton laveur et Gredin",
+      "text": "Initiative.<br/>Quand cette créature inflige des dégâts de combat à un joueur, créez autant de jetons Trésor engagés.",
+      "textAlign": "center",
+      "hasPowerAndToughness": true,
+      "power": "1",
+      "toughness": "1",
+      "color": [
+        "red",
+        "colorless",
+        "colorless"
+      ],
+      "count": 1,
+      "style": "vilainous",
+      "focus": false,
+      "open": false
+    },
+    {
+      "name": "Hamster",
+      "image": "/imgs/hamster-01.jpg",
+      "type": "Créature-Jeton",
+      "kind": "Hamster",
+      "text": "",
+      "textAlign": "center",
+      "hasPowerAndToughness": true,
+      "power": "1",
+      "toughness": "1",
+      "color": [
+        "red",
+        "colorless",
+        "colorless"
+      ],
+      "count": 1,
+      "style": "vilainous",
+      "focus": false,
+      "open": false
+    },
+    {
+      "name": "Hamster",
+      "image": "/imgs/hamster-02.jpg",
+      "type": "Créature-Jeton",
+      "kind": "Hamster",
+      "text": "",
+      "textAlign": "center",
+      "hasPowerAndToughness": true,
+      "power": "1",
+      "toughness": "1",
+      "color": [
+        "red",
+        "colorless",
+        "colorless"
+      ],
+      "count": 1,
+      "style": "vilainous",
+      "focus": false,
+      "open": false
+    }
+  ]
+}
