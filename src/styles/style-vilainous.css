@@ -1,0 +1,195 @@
+article.proxy[data-style="vilainous"] {
+  /* ===== Typographie ===== */
+  --style--font--title: "Uncial Antiqua", serif;
+  --style--font--size--title: 1em;
+  --style--font--type: "Yeseva One", serif;
+  --style--font--size--type: 0.85em;
+  --style--font--rules: "Cormorant SC", serif;
+  --style--font--size--rules: 0.75em;
+  --style--font--pt: "Uncial Antiqua", serif;
+  --style--font--size--pt: 1.2em;
+
+  /* ===== Couleurs de texte ===== */
+  --style--color--bone-ivory: #f2efe6; /* nom de la carte */
+  --style--color--parchment: #e8dcc0; /* type + texte des règles */
+  --style--color--mist-grey: #9da3a8; /* mentions secondaires ("Jeton de créature", n° de collection) */
+  --style--color--old-gold: #d4af37; /* puissance / endurance */
+
+  /* ===== Cadres ===== */
+  --style--color--black-night: #0d0b14; /* fond derrière le texte (nom, type, règles, F/E) */
+  --style--color--deep-purple: #2e1a47; /* variante de fond / séparations */
+  --style--color--dark-gold: #8c6b1f; /* séparateur, filet intérieur */
+
+  /* ===== Bordures et filets ===== */
+  --border--frame: 2px solid #d4af37; /* cadre principal de la carte */
+  --border--frame-outer: 1px solid #8c6b1f; /* filet extérieur fin */
+  --divider: 1px solid #8c6b1f; /* séparateur nom / zone d'art ou type / règles */
+
+  /* ===== Fonds de zones textuelles ===== */
+  --bg--name-bar: linear-gradient(180deg, #2e1a47 0%, #0d0b14 100%);
+  --bg--rules-box: rgba(13, 11, 20, 0.8);
+  --bg--pt-box: #0d0b14;
+
+  /* ===== Textes ===== */
+  --text--name: var(--style--color--bone-ivory);
+  --text--type: var(--style--color--parchment);
+  --text--rules: var(--style--color--parchment);
+  --text--secondary: var(--style--color--mist-grey);
+  --text--pt: var(--style--color--old-gold);
+
+  position: relative;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  header {
+    border-bottom: var(--divider);
+    background-image: var(--bg--name-bar);
+    color: var(--text--name);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 0.25rem 0 0.5rem 0;
+    font-family: var(--style--font--title);
+    font-size: var(--style--font--size--title);
+    opacity: 0.75;
+  }
+
+  main {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 0;
+    right: 0;
+
+    div.type {
+      border-top: var(--divider);
+      border-top-width: 2px;
+      border-bottom: var(--divider);
+      border-bottom-width: 2px;
+      color: var(--text--type);
+      padding: 0.25rem 0;
+      background: var(--bg--rules-box);
+      text-align: center;
+      font-family: var(--style--font--type);
+      font-size: var(--style--font--size--type);
+    }
+    div.text {
+      background: var(--bg--rules-box);
+      color: var(--text--rules);
+      border-bottom: var(--divider);
+      padding: 0.25rem 0 0.25rem 0;
+      font-family: var(--style--font--rules);
+      font-size: var(--style--font--size--rules);
+      font-weight: 600;
+
+      span {
+        width: var(--style--font--size--rules);
+        height: var(--style--font--size--rules);
+      }
+
+      &:empty {
+        display: none;
+      }
+    }
+
+    &:has(div.text:empty) {
+      bottom: 2rem;
+    }
+  }
+
+  footer {
+    border: var(--divider);
+    background: var(--bg--pt-box);
+    color: var(--text--pt);
+    position: absolute;
+    bottom: 0.125rem;
+    right: 0.125rem;
+    padding: 0.25rem 0.5rem;
+    line-height: 1rem;
+    font-family: var(--style--font--pt);
+    font-size: var(--style--font--size--pt);
+    text-shadow: var(--shadow--gold-emboss);
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &:has(.color-container :not([data-color="colorless"])) {
+    header {
+      padding: 0.125rem 0 0.625rem 0;
+    }
+  }
+
+  div.color-container {
+    position: absolute;
+    top: 1.625rem;
+    left: 3rem;
+    right: 3rem;
+    height: 0.25rem;
+    z-index: 500;
+    border-radius: 0.5rem;
+    display: none;
+
+    [data-color] {
+      display: block;
+
+      &:not([data-color="colorless"]):first-of-type {
+        border-top-left-radius: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
+      }
+    }
+
+    [data-color]:nth-child(3):not([data-color="colorless"]) {
+      border-top-right-radius: 0.5rem;
+      border-bottom-right-radius: 0.5rem;
+    }
+
+    &:has([data-color="colorless"]:nth-child(3)) {
+      [data-color]:nth-child(2):not([data-color="colorless"]) {
+        border-top-right-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+      }
+      &:has([data-color="colorless"]:nth-child(2)) {
+        [data-color]:nth-child(1) {
+          border-top-right-radius: 0.5rem;
+          border-bottom-right-radius: 0.5rem;
+        }
+      }
+    }
+
+    &:has(:not([data-color="colorless"])) {
+      display: flex;
+    }
+
+    [data-color="black"] {
+      background-color: black;
+      flex: 1;
+    }
+
+    [data-color="blue"] {
+      background-color: blue;
+      flex: 1;
+    }
+
+    [data-color="green"] {
+      background-color: green;
+      flex: 1;
+    }
+
+    [data-color="red"] {
+      background-color: red;
+      flex: 1;
+    }
+
+    [data-color="white"] {
+      background-color: white;
+      flex: 1;
+    }
+  }
+}

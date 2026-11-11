@@ -2,6 +2,7 @@ import { createResource, For } from "solid-js";
 import {
   buildEmptyCardConfig,
   CARD_COLORS,
+  CARD_STYLES,
   useCurrentProject,
   type CardColor,
   type CardConfig,
@@ -10,6 +11,7 @@ import { identity } from "@anthonypena/fp";
 import { InputField } from "./fields/input-field";
 
 import "./card-configurator.css";
+import type { CardStyle } from "../services/store/models";
 
 export function CardConfigurator() {
   const [store, setStore] = useCurrentProject();
@@ -164,7 +166,11 @@ export function CardConfigCard(props: CardConfigCardProps) {
               })
             }
           >
-            <For each={images.latest ?? []}>{(f) => <option>{f}</option>}</For>
+            <For each={images.latest ?? []}>
+              {(f) => (
+                <option selected={props.cardConfig.image === f}>{f}</option>
+              )}
+            </For>
           </select>
         </label>
         <label>
@@ -217,6 +223,24 @@ export function CardConfigCard(props: CardConfigCardProps) {
           value={props.cardConfig.count}
           onChange={cardConfigPatcher("count", (x) => Number.parseInt(x, 10))}
         />
+        <label>
+          Style:
+          <select
+            value={props.cardConfig.style}
+            onChange={(e) =>
+              props.onChange({
+                ...props.cardConfig,
+                style: e.currentTarget.value as CardStyle,
+              })
+            }
+          >
+            <For each={CARD_STYLES}>
+              {(s) => (
+                <option selected={props.cardConfig.style === s}>{s}</option>
+              )}
+            </For>
+          </select>
+        </label>
       </main>
       <footer>
         <button type="button" onClick={props.onDelete}>

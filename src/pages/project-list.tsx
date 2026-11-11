@@ -18,6 +18,13 @@ export function ProjectList() {
             </li>
           )}
         </For>
+        <li>
+          <a href="/project/new">
+            <span title="New project" aria-label="New project">
+              +
+            </span>
+          </a>
+        </li>
       </ul>
     </div>
   );

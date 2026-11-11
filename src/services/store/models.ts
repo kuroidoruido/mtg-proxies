@@ -24,6 +24,9 @@ export const CARD_COLORS = [
 ] as const;
 export type CardColor = (typeof CARD_COLORS)[number];
 
+export const CARD_STYLES = ["black-and-red", "vilainous"] as const;
+export type CardStyle = (typeof CARD_STYLES)[number];
+
 export interface CardConfig {
     name: string;
     image: string;
@@ -36,7 +39,7 @@ export interface CardConfig {
     toughness: string;
     color: CardColor[];
     count: number;
-    style: "black-and-red";
+    style: CardStyle;
     focus: boolean;
     open: boolean;
 }

@@ -1,5 +1,6 @@
 .card-configurator {
   width: 22rem;
+  padding: 0.5rem;
   form {
     display: flex;
     flex-direction: column;
