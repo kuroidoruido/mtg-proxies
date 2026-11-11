@@ -37,7 +37,6 @@ export function readProjectFromStorage(
         return buildEmptyProject();
     }
     const raw: Project = JSON.parse(str);
-    console.log({ raw });
     return {
         ...buildEmptyProject(),
         ...raw,
