@@ -1,6 +1,7 @@
 #project-list {
   ul {
     display: flex;
+    flex-wrap: wrap;
 
     li {
       width: 15rem;
