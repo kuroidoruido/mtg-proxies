@@ -1,4 +1,4 @@
-import { createMemo, For, onMount } from "solid-js";
+import { createMemo, For, onSettled } from "solid-js";
 
 import { useAllProjects } from "../services/store/all-projects.store";
 
@@ -13,7 +13,7 @@ export function ProjectList() {
     ),
   );
 
-  onMount(() => refresh());
+  onSettled(() => refresh());
   return (
     <div id="project-list">
       <ul>

@@ -28,7 +28,7 @@ function ProjectNameInput() {
     <InputField
       label="Project name"
       value={store.name ?? ""}
-      onChange={(e) => setStore({ ...store, name: e.target.value })}
+      onChange={(e) => setStore(() => ({ ...store, name: e.target.value }))}
     />
   );
 }

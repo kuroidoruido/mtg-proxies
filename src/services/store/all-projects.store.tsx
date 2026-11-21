@@ -1,5 +1,10 @@
-import { createContext, onMount, useContext, type ParentProps } from "solid-js";
-import { createStore } from "solid-js/store";
+import {
+  createContext,
+  onSettled,
+  useContext,
+  type ParentProps,
+} from "solid-js";
+import { createStore } from "solid-js";
 import { findAllProjectMetadata, onStoreChanges } from "./localStorage.utils";
 
 export interface AllProjectsStoreData {
@@ -18,20 +23,20 @@ const allProjectsStore = createStore<AllProjectsStoreData>(
 const AllProjectsStoreContext = createContext(allProjectsStore[0]);
 
 function refreshProjects() {
-  allProjectsStore[1]({ projects: findAllProjectMetadata() });
+  allProjectsStore[1](() => ({ projects: findAllProjectMetadata() }));
 }
 
 export function ProvideAllProjects(props: ParentProps) {
-  onMount(() => {
+  onSettled(() => {
     // restore previous state
     refreshProjects();
     onStoreChanges(() => refreshProjects());
   });
 
   return (
-    <AllProjectsStoreContext.Provider value={allProjectsStore[0]}>
+    <AllProjectsStoreContext value={allProjectsStore[0]}>
       {props.children}
-    </AllProjectsStoreContext.Provider>
+    </AllProjectsStoreContext>
   );
 }
 

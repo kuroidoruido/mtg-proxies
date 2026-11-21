@@ -1,11 +1,11 @@
 import {
   createContext,
   createEffect,
-  onMount,
+  onSettled,
   useContext,
   type ParentProps,
 } from "solid-js";
-import { createStore } from "solid-js/store";
+import { createStore } from "solid-js";
 import { type Project } from "./models";
 import {
   readProjectFromStorage,
@@ -24,20 +24,21 @@ export function ProvideCurrentProject(
   props: ParentProps & { projectId: string },
 ) {
   const currentState = () => projectStore[0];
-  onMount(() => {
+  onSettled(() => {
     // restore previous state
-    projectStore[1](readProjectFromStorage(props.projectId));
+    projectStore[1](() => readProjectFromStorage(props.projectId));
   });
 
-  createEffect(() => {
-    // save new state
-    saveProjectToStorage(currentState());
-  });
+  // save new state
+  createEffect(
+    () => currentState(),
+    (state) => saveProjectToStorage(state),
+  );
 
   return (
-    <CurrentProjectStoreContext.Provider value={projectStore}>
+    <CurrentProjectStoreContext value={projectStore}>
       {props.children}
-    </CurrentProjectStoreContext.Provider>
+    </CurrentProjectStoreContext>
   );
 }
 

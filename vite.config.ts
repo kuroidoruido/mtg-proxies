@@ -1,20 +1,9 @@
 /// <reference types="vitest/config" />
 import { defineConfig } from "vite";
-import solid from "vite-plugin-solid";
-import devtools from "solid-devtools/vite";
+import solid from "@solidjs/vite-plugin";
 
 export default defineConfig({
-  plugins: [
-    devtools({
-      autoname: true,
-      locator: {
-        targetIDE: "vscode",
-        componentLocation: true,
-        jsxLocation: true,
-      },
-    }),
-    solid(),
-  ],
+  plugins: [solid()],
 
   test: {
     environment: "happy-dom",

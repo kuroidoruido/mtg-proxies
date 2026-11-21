@@ -36,12 +36,12 @@ interface ProxyCardProps {
 export function ProxyCard(props: ProxyCardProps) {
   return (
     <article
-      classList={{ proxy: true, copy: props.proxy.copy ?? false }}
-      attr:data-style={props.proxy.style}
+      class={{ proxy: true, copy: props.proxy.copy ?? false }}
+      data-style={props.proxy.style}
     >
       <div class="color-container">
         <For each={props.proxy.color}>
-          {(c) => <span attr:data-color={c}></span>}
+          {(c) => <span data-color={c}></span>}
         </For>
       </div>
       <header>{props.proxy.name}</header>
@@ -52,7 +52,7 @@ export function ProxyCard(props: ProxyCardProps) {
         </div>
         <div
           class="text"
-          attr:data-align={props.proxy.textAlign}
+          data-align={props.proxy.textAlign}
           innerHTML={preformat(props.proxy.text)}
         ></div>
       </main>

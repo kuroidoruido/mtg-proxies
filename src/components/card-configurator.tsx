@@ -1,4 +1,4 @@
-import { createResource, For } from "solid-js";
+import { createMemo, For } from "solid-js";
 import {
   buildEmptyCardConfig,
   CARD_COLORS,
@@ -18,7 +18,7 @@ export function CardConfigurator() {
 
   const cards = () => store.cards;
   const addCard = () =>
-    setStore("cards", (cards) => [...cards, buildEmptyCardConfig()]);
+    setStore((draft) => void draft.cards.push(buildEmptyCardConfig()));
 
   return (
     <section class="card-configurator hidden-on-print">
@@ -27,17 +27,23 @@ export function CardConfigurator() {
           {(cardConfig, index) => (
             <CardConfigCard
               cardConfig={cardConfig}
-              onChange={(cc) => setStore("cards", index(), cc)}
+              onChange={(cc) =>
+                setStore((draft) => void (draft.cards[index()] = cc))
+              }
               onDelete={() =>
-                setStore("cards", (cards) =>
-                  cards.filter((_c, ci) => ci !== index()),
+                setStore(
+                  (draft) =>
+                    void (draft.cards = draft.cards.filter(
+                      (_c, ci) => ci !== index(),
+                    )),
                 )
               }
               onDuplicate={() =>
-                setStore("cards", (cards) =>
-                  cards.flatMap((c, ci) =>
-                    ci === index() ? [c, { ...c }] : [c],
-                  ),
+                setStore(
+                  (draft) =>
+                    void (draft.cards = draft.cards.flatMap((c, ci) =>
+                      ci === index() ? [c, { ...c }] : [c],
+                    )),
                 )
               }
             />
@@ -59,7 +65,7 @@ interface CardConfigCardProps {
 }
 
 export function CardConfigCard(props: CardConfigCardProps) {
-  const [images] = createResource(() =>
+  const images = createMemo(() =>
     fetch("/imgs/list.json").then((r): Promise<string[]> => r.json()),
   );
 
@@ -155,7 +161,7 @@ export function CardConfigCard(props: CardConfigCardProps) {
           Text:
           <textarea
             value={props.cardConfig.text}
-            onkeyup={(e) => {
+            onKeyUp={(e) => {
               props.onChange({
                 ...props.cardConfig,
                 text: e.currentTarget.value,
@@ -174,7 +180,7 @@ export function CardConfigCard(props: CardConfigCardProps) {
               })
             }
           >
-            <For each={images.latest ?? []}>
+            <For each={images() ?? []}>
               {(f) => (
                 <option selected={props.cardConfig.image === f}>{f}</option>
               )}
